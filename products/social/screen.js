@@ -217,11 +217,19 @@
   };
 
   /* ---------- number formatting (ui.ino) ---------- */
-  function fmtComma(n) { return String(Math.max(0, Math.floor(n))).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  function fmtComma(n) { return String(Math.max(0, Math.floor(n)) % 4294967296).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  // printf "%.Nf": rounds the exact binary value, ties to even (10500 -> "10K", 1250000 -> "1.2M").
+  // toFixed rounds ties up, so an exact .5 would read one higher than the device.
+  function printfFixed(v, d) {
+    var m = Math.pow(10, d), x = v * m, f = Math.floor(x);
+    if (x - f === 0.5 && f % 2 === 0) return (f / m).toFixed(d);
+    return v.toFixed(d);
+  }
   function fmtCompact(n) {
     var s;
-    if (n >= 1e9) s = (n / 1e9).toFixed(1) + "B"; else if (n >= 1e6) s = (n / 1e6).toFixed(1) + "M";
-    else if (n >= 1e4) s = (n / 1e3).toFixed(0) + "K"; else return fmtComma(n);
+    n = Math.max(0, Math.floor(n)) % 4294967296;   // uint32_t on the device
+    if (n >= 1e9) s = printfFixed(n / 1e9, 1) + "B"; else if (n >= 1e6) s = printfFixed(n / 1e6, 1) + "M";
+    else if (n >= 1e4) s = printfFixed(n / 1e3, 0) + "K"; else return fmtComma(n);
     return s.replace(".0B", "B").replace(".0M", "M").replace(".0K", "K");
   }
   function fmtHero(n) { return n >= 1e6 ? fmtCompact(n) : fmtComma(n); }
@@ -332,7 +340,7 @@
     }
     if (hasData) {
       var target = nextMilestone(st.primary); if (target < 10) target = 10;
-      var frac = Math.min(1, Math.fround(st.primary / target));
+      var frac = Math.min(1, Math.fround(Math.fround(st.primary) / Math.fround(target)));
       var mcX = PAD, mcY = 206, mcW = 320 - 2 * PAD, mcH = 32;
       fb.roundRect(mcX, mcY, mcW, mcH, 10, SURFACE);
       fb.text("NEXT MILESTONE", mcX + 14, mcY + 12, "FSS9", "ML", DIM, SURFACE);

@@ -30,7 +30,23 @@
     { k: "jumbo", n: "All Day battery", s: "Bigger battery" }
   ];
   function finishImg(k) { return ROOT + "assets/finishes/" + k + ".webp"; }
-  function preloadFinishes() { FINISHES.forEach(function (f) { new Image().src = finishImg(f.k); }); }
+  // Stand photos load only when someone reaches for a colour, not with the page.
+  function preloadFinishes(near) {
+    var done = false, go = function () { if (done) return; done = true; FINISHES.forEach(function (f) { new Image().src = finishImg(f.k); }); };
+    if (!near) return go();
+    ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { near.addEventListener(ev, go, { once: true, passive: true }); });
+  }
+
+  /* ---------- in-use clips: load and play only while on screen ---------- */
+  var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  $$("video[data-inview]").forEach(function (v) {
+    if (still || !("IntersectionObserver" in window)) { v.controls = true; return; }
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else v.pause();
+      });
+    }, { threshold: 0.25 }).observe(v);
+  });
 
   /* ---------- UTM pass-through ---------- */
   var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
@@ -270,7 +286,7 @@
       render.ready = true;
     };
     render();
-    preloadFinishes();
+    preloadFinishes(fWrap);
     try { if (new URLSearchParams(location.search).get("finish") && !location.hash) setTimeout(function () { $("#build").scrollIntoView(); }, 300); } catch (e) {}
   }
 
@@ -337,8 +353,8 @@
     tabKeys($(".switch .tabs"));
     showP(0);
     setInterval(function () { if (!heldP && !document.hidden) showP((cur + 1) % P.length); }, 4000);
-    P.forEach(function (p) { new Image().src = "products/" + p.slug + "/screens/" + p.screen + ".webp"; });
-    preloadFinishes();
+    P.forEach(function (p) { new Image().src = "products/" + p.slug + "/screens/" + p.screen + ".webp"; new Image().src = finishImg(p.finish); });
+    preloadFinishes($("#homeFinishes"));
 
     // Colours: the same device in any stand colour; the screen steps through the meters.
     var cWrap = $("#homeFinishes"), cDev = $("#colourDevice"), ci = 0;

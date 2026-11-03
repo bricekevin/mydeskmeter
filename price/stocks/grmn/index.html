@@ -45,7 +45,7 @@
 
 <section class="hero" id="top">
   <div class="wrap">
-    <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="../../../price/">priceMeter</a> <span aria-hidden="true">/</span> <a href="../../../price/stocks/">Stocks</a> <span aria-hidden="true">/</span> <a href="../../../price/stocks/sector/consumer-discretionary/">Consumer Discretionary</a> <span aria-hidden="true">/</span> <span>GRMN</span></nav>
+    <nav class="crumbs reveal" aria-label="Breadcrumb"><ol><li><a href="../../../price/">priceMeter</a></li><li><a href="../../../price/stocks/">Stocks</a></li><li><a href="../../../price/stocks/sector/consumer-discretionary/">Consumer Discretionary</a></li><li><span aria-current="page">GRMN</span></li></ol></nav>
     <div class="hero-copy">
       <p class="eyebrow reveal">Consumer Discretionary · the NYSE</p>
       <h1 class="reveal">Garmin (GRMN) on your desk.</h1>
@@ -88,25 +88,85 @@
 </section>
 
 
-<section class="sec" id="faq">
+<!-- IN USE + COLOURS: shared per meter -->
+<section class="sec" id="in-use">
   <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">In use</p>
+      <h2>Your morning check, done.</h2>
+      <p>Coffee in one hand, the market on your desk. No app to open.</p>
+    </div>
+    <div class="scenes reveal">
+  <figure><img src="../../../assets/scenes/price-1.webp" alt="priceMeter showing Apple stock on a desk by a window" width="720" height="540" loading="lazy" decoding="async"></figure>
+  <figure><img src="../../../assets/scenes/price-2.webp" alt="priceMeter showing Bitcoin on a trading desk" width="720" height="540" loading="lazy" decoding="async"></figure>
+  <figure><img src="../../../assets/scenes/price-3.webp" alt="priceMeter showing Nvidia in front of a monitor" width="720" height="540" loading="lazy" decoding="async"></figure>
+  
+</div>
+    
+<div class="finish-row reveal">
+  <p class="finish-lab"><b>6 stand colours.</b> Pick one to start your build.</p>
+  <ul class="chips">
+    <li><a href="../../../price/?finish=black#build"><i style="--c: #1f1e1d"></i>Black<small>$119</small></a></li>
+    <li><a href="../../../price/?finish=red#build"><i style="--c: #c3262d"></i>Red<small>$129</small></a></li>
+    <li><a href="../../../price/?finish=wood#build"><i style="--c: linear-gradient(135deg,#b07c4f,#7c5232 60%,#a8744a)"></i>Wood<small>$129</small></a></li>
+    <li><a href="../../../price/?finish=gold#build"><i style="--c: linear-gradient(135deg,#f3d68a,#b98b2e 55%,#e8c66e)"></i>Gold<small>$129</small></a></li>
+    <li><a href="../../../price/?finish=rainbow#build"><i style="--c: conic-gradient(#ff4d4d,#ffb84d,#f6f24d,#4dff88,#4dc3ff,#9b4dff,#ff4d4d)"></i>Rainbow<small>$129</small></a></li>
+    <li><a href="../../../price/?finish=glow#build"><i style="--c: radial-gradient(circle at 35% 35%,#eaffd6,#a6e88a 60%,#6fc75a)"></i>Glow<small>$129</small></a></li>
+    
+  </ul>
+</div>
+  </div>
+</section>
+
+
+<section class="sec sec-soft" id="faq">
+  <div class="wrap narrow">
     <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions.</h2></div>
     <div class="faq reveal"><details><summary>Can I see Garmin price on a desk display?</summary><p>Yes. priceMeter shows GRMN live on a small Wi-Fi screen: the price, a 24-candle chart and the move across it. Type Stock:GRMN during setup.</p></details><details><summary>Does it work when the market is closed?</summary><p>Yes. GRMN trades on the NYSE during US market hours. Outside them the screen keeps the last price and chart until trading opens again. Crypto on the same device keeps moving around the clock.</p></details><details><summary>How fast does GRMN update?</summary><p>The price refreshes every 15 seconds from Yahoo Finance while the market is open, and the whole chart every 30 seconds. No API key or brokerage account is needed.</p></details><details><summary>Can I show GRMN with other tickers?</summary><p>Yes, up to 25 in any mix of stocks, ETFs and crypto. Press the left button for the next one, or left and right together to cycle every 15 seconds.</p></details></div>
   </div>
 </section>
 
 
-<section class="sec sec-soft" id="related">
+<section class="sec" id="related">
   <div class="wrap">
-    <div class="head reveal"><h2>Related tickers</h2></div>
+    <div class="head reveal"><p class="eyebrow">Keep looking</p><h2>Related tickers</h2></div>
     <ul class="related reveal"><li><a href="../../../price/stocks/tsla/">TSLA · Tesla</a></li><li><a href="../../../price/stocks/amzn/">AMZN · Amazon</a></li><li><a href="../../../price/stocks/hd/">HD · Home Depot</a></li><li><a href="../../../price/stocks/nke/">NKE · Nike</a></li><li><a href="../../../price/stocks/mcd/">MCD · McDonald's</a></li><li><a href="../../../price/stocks/bkng/">BKNG · Booking</a></li><li><a href="../../../price/stocks/sbux/">SBUX · Starbucks</a></li><li><a href="../../../price/stocks/tjx/">TJX · TJX Companies</a></li><li><a href="../../../price/stocks/dash/">DASH · DoorDash</a></li><li><a href="../../../price/stocks/cmg/">CMG · Chipotle Mexican Grill</a></li><li><a href="../../../price/stocks/gm/">GM · General Motors</a></li><li><a href="../../../price/stocks/rcl/">RCL · Royal Caribbean Group</a></li><li><a href="../../../price/stocks/sector/consumer-discretionary/">All Consumer Discretionary stocks</a></li><li><a href="../../../price/stocks/">All S&P 500 stocks</a></li><li><a href="../../../price/etfs/">Popular ETFs</a></li><li><a href="../../../price/crypto/">Crypto pairs</a></li></ul>
+    <p class="back reveal"><a class="link" href="../../../price/"><span aria-hidden="true">&larr;</span> Everything priceMeter does</a></p>
+  </div>
+</section>
+
+
+<section class="sec sec-soft" id="family">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">myDeskMeter</p><h2>Same device, other numbers.</h2></div>
+    <div class="fam reveal">
+  
+  <a class="fam-card" href="../../../codemeter/" style="--accent: #d9693f">
+    <img src="../../../assets/scenes/codemeter-1.webp" alt="" width="720" height="540" loading="lazy" decoding="async">
+    <span class="fam-txt"><b>codeMeter</b><span>Your Claude Code and Codex limits.</span><em>From $119 <span aria-hidden="true">&rarr;</span></em></span>
+  </a>
+  
+  <a class="fam-card" href="../../../sports/" style="--accent: #178a56">
+    <img src="../../../assets/scenes/sports-1.webp" alt="" width="720" height="540" loading="lazy" decoding="async">
+    <span class="fam-txt"><b>sportsMeter</b><span>Your teams, live on your desk.</span><em>From $119 <span aria-hidden="true">&rarr;</span></em></span>
+  </a>
+  
+  <a class="fam-card" href="../../../social/" style="--accent: #0a64c2">
+    <img src="../../../assets/scenes/social-1.webp" alt="" width="720" height="540" loading="lazy" decoding="async">
+    <span class="fam-txt"><b>socialMeter</b><span>Live followers, viewers and sales.</span><em>From $119 <span aria-hidden="true">&rarr;</span></em></span>
+  </a>
+  
+</div>
   </div>
 </section>
 
 <section class="close">
-  <div class="wrap">
-    <h2 class="reveal">GRMN, without the tabs.</h2>
-    <a class="btn btn-lg reveal" href="../../../price/#build">Build yours</a>
+  <div class="wrap close-in reveal">
+    <h2>GRMN, without the tabs.</h2>
+    <div class="close-links">
+      <a class="btn btn-lg" href="../../../price/#build">Build yours</a>
+      <a class="btn btn-lg btn-ghost" href="../../../price/">See priceMeter</a>
+    </div>
   </div>
 </section>
 
@@ -115,11 +175,28 @@
 <a class="sticky-buy" id="stickyBuy" href="../../../price/#build">Build yours <span>from $119</span></a>
 
 <footer class="foot">
-  <div class="wrap foot-in">
-    <p><a class="brand" href="../../../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
-    <nav aria-label="Products">
-      <a href="../../../codemeter/">codeMeter</a><a href="../../../price/">priceMeter</a><a href="../../../sports/">sportsMeter</a><a href="../../../social/">socialMeter</a>
-      <a href="mailto:info@encinitas3d.com">Contact</a>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="../../../">myDeskMeter</a>
+      <p>Small Wi-Fi desk displays, 3D-printed to order by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a> in Encinitas, California.</p>
+      <p><a href="mailto:info@encinitas3d.com">info@encinitas3d.com</a></p>
+    </div>
+    <nav class="foot-col" aria-label="codeMeter">
+      <a class="foot-head" href="../../../codemeter/" style="--accent: #d9693f">codeMeter</a>
+      <a href="../../../codemeter/plans/">Your plan</a><a href="../../../codemeter/guides/">Guides</a><a href="../../../codemeter/two-claude-accounts/">Two accounts</a><a href="../../../codemeter/claude-and-codex/">Claude + Codex</a>
+      <a href="../../../codemeter/#build">Build yours</a>
+    </nav><nav class="foot-col" aria-label="priceMeter">
+      <a class="foot-head" href="../../../price/" style="--accent: #4d7a00">priceMeter</a>
+      <a href="../../../price/stocks/">S&P 500 stocks</a><a href="../../../price/etfs/">ETFs</a><a href="../../../price/crypto/">Crypto</a>
+      <a href="../../../price/#build">Build yours</a>
+    </nav><nav class="foot-col" aria-label="sportsMeter">
+      <a class="foot-head" href="../../../sports/" style="--accent: #178a56">sportsMeter</a>
+      <a href="../../../sports/teams/">All 1,784 teams</a><a href="../../../sports/teams/nfl/">NFL</a><a href="../../../sports/teams/nba/">NBA</a><a href="../../../sports/teams/mlb/">MLB</a>
+      <a href="../../../sports/#build">Build yours</a>
+    </nav><nav class="foot-col" aria-label="socialMeter">
+      <a class="foot-head" href="../../../social/" style="--accent: #0a64c2">socialMeter</a>
+      <a href="../../../social/platforms/">All 20 platforms</a><a href="../../../social/for/youtubers/">YouTubers</a><a href="../../../social/for/streamers/">Streamers</a><a href="../../../social/for/developers/">Developers</a>
+      <a href="../../../social/#build">Build yours</a>
     </nav>
   </div>
   <p class="wrap legal">priceMeter is an independent product. Binance.US and Yahoo Finance are trademarks of their respective owners, as are the stock tickers and coin names shown. Prices are for information only. Not made by, endorsed by, or affiliated with any of them.</p>

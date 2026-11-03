@@ -120,7 +120,7 @@
     if (!force && key === lastKey) return;
     lastKey = key;
     SM.draw(canvas, frame);
-    cap.textContent = c.failed ? t.full + (c.sample ? ": live scores could not load here, so this is a sample season." : ": live scores could not load here, so the season is left empty. The device fetches them itself.")
+    cap.textContent = c.failed ? t.full + ": the scores feed did not answer in this browser, so the screen shows what the device shows until its first update arrives. The device reads the feed itself."
       : !c.m ? "Loading " + t.full + "..."
       : t.full + ", " + t.store + (m.g.state === "live" ? ": live now." : m.g.state === "pre" ? ": the real next game." : m.g.state === "final" ? ": the latest result." : ".");
     [].forEach.call(chips.children, function (ch, i) { ch.setAttribute("aria-pressed", i === cur ? "true" : "false"); });
@@ -248,8 +248,8 @@
     var kc = find("nfl", "12"); mine = [kc]; renderChips(); show(0);
   }).catch(function () {
     countEl.textContent = "The team list could not load. See every team at encinitas3d.com/sports-meter-teams.";
-    mine = [SM.DEMO_TEAMS[0]]; mine[0].store = "NFL"; var m = SM.demoModel("KC", "idle");
-    CACHE["nfl:12"] = { m: m, at: Date.now() }; renderChips(); paint(true);
+    var kc = SM.DEMO_TEAMS[0]; kc.store = "NFL"; kc.espn = "football/nfl";
+    mine = [kc]; renderChips(); show(0);
   });
 
   SM.onLogo(function () { paint(true); });

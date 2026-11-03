@@ -28,11 +28,10 @@
     }
     return cur;
   }
-  function oppName(g) { return g.opp ? (g.opp.full || g.opp.abbr) : "TBD"; }
+  function oppName(g) { return g.opp && (g.opp.full || g.opp.abbr) ? (g.opp.full || g.opp.abbr) : "an opponent still to be named"; }
   function words(t, m, c) {
     var g = m.g || { state: "none" }, s = t.full;
-    if (c.failed) return s + (c.sample ? ": the scores feed could not load here, so this is a sample season."
-      : ": the scores feed could not load here, so the season is left empty. The device fetches it itself.");
+    if (c.failed) return s + ": the scores feed did not answer in this browser, so the screen shows what the device shows until its first update arrives. The device reads the feed itself.";
     if (!c.m) return "Loading " + s + "...";
     var rec = m.rec ? " " + m.rec + (m.stand ? ", " + m.stand : "") + "." : "";
     var at = g.home ? "vs " : "at ";

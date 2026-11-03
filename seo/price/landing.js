@@ -37,12 +37,12 @@
   function fmt(d) { try { return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return ""; } }
 
   $$("canvas[data-pm]").forEach(function (cv) {
-    var d = cv.dataset, K = [], rec = new Date(d.rec), name = d.name, cap = d.cap && document.getElementById(d.cap);
+    var d = cv.dataset, K = [], rec = new Date(d.rec), name = PM.fitName([d.name, (d.pair || "").replace(/USDT$/, "")]), cap = d.cap && document.getElementById(d.cap);
     try { K = PM.rows(JSON.parse(d.k)); } catch (e) {}
     function say(t) { if (cap) cap.textContent = t; }
     function recorded(t) {
       if (K.length) PM.draw(cv, { name: name, stock: d.kind !== "crypto", tf: d.tf, candles: K, date: rec });
-      else PM.draw(cv, { name: name, candles: [], msg: [["Chart loads on", PM.colors.WHITE], ["the device", PM.colors.WHITE]] });
+      else PM.draw(cv, { name: name, candles: [] }); // the device's frame before its first chart, no page text on the screen
       say(t);
     }
     if (d.kind !== "crypto") {

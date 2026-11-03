@@ -126,7 +126,7 @@ var PM_FONTS={"FSSB12":{"first":32,"last":126,"g":[[0,0,0,7,0,1],[0,4,17,8,3,-16
     var tf = v.tf || "1h", K = v.candles || [], n = 24, w = 320 / n;
 
     // printTime(): name FSSB12 (1,19), date FMB12 (111,14)
-    fr.text("FSSB12", 1, 19, (v.name || "").slice(0, 8), v.nameColor || NAMEC);
+    fr.text("FSSB12", 1, 19, v.name || "", v.nameColor || NAMEC); // as typed, unclipped (printTime)
     fr.text("FMB12", 111, 14, typeof v.date === "string" ? v.date : dateLine(v.date || new Date(), v.tz), LGREY);
 
     // showWifiStrength(): four bars, strong signal
@@ -224,6 +224,32 @@ var PM_FONTS={"FSSB12":{"first":32,"last":126,"g":[[0,0,0,7,0,1],[0,4,17,8,3,-16
     if (days >= 2) return hrs === 72 ? ":3d" : ":" + days + "d";
     if (hrs >= 2) return ":" + hrs + "h";
     return ":" + mins + "m";
+  }
+
+  /* ---------- the name field ----------
+     The portal's name field is free text (40 chars, help text "Max 8 characters", ino:666) and
+     printTime() prints it as typed in FSSB12 at (1,19), unclipped, with the busy light at x 97-105
+     and the date from x 111 drawn over it. So a wide name (Ethereum = 111 px) runs into both on the
+     device too. nameRight() is the right-most lit pixel; a name fits when it ends by x 95. */
+  var NAME_MAX_X = 95;
+  function nameRight(s) {
+    var F = FONTS.FSSB12, x = 1, r = 0;
+    for (var n = 0; n < s.length; n++) {
+      var ch = s.charCodeAt(n), g = ch >= F.first && ch <= F.last ? F.g[ch - F.first] : 0;
+      if (!g) { x += 8; continue; }
+      if (g[1]) r = Math.max(r, x + g[4] + g[1] - 1);
+      x += g[3];
+    }
+    return r;
+  }
+  function nameFits(s) { return s.length <= 8 && nameRight(s) <= NAME_MAX_X; }
+  // first candidate that fits; else the longest prefix of the last one that does
+  function fitName(cands) {
+    cands = cands.filter(Boolean);
+    for (var i = 0; i < cands.length; i++) if (nameFits(cands[i])) return cands[i];
+    var s = (cands[cands.length - 1] || "").slice(0, 8);
+    while (s.length > 1 && !nameFits(s)) s = s.slice(0, -1);
+    return s;
   }
 
   var FR = null;
@@ -360,7 +386,6 @@ var PM_FONTS={"FSSB12":{"first":32,"last":126,"g":[[0,0,0,7,0,1],[0,4,17,8,3,-16
       var t = TICKERS[vw.idx], K = feed.data[t.pair];
       var v = { name: t.name, tf: "1h", candles: K || [], busy: feed.busy };
       if (feed.mode === "replay" && feed.at) v.date = new Date(feed.at * 1000);
-      if (feed.mode === "down") v.msg = [["No connection", WHITE]];
       return v;
     }
     function render() { views.forEach(function (vw) { if (vw.visible && !document.hidden) draw(vw.cv, viewFor(vw)); }); }
@@ -385,7 +410,7 @@ var PM_FONTS={"FSSB12":{"first":32,"last":126,"g":[[0,0,0,7,0,1],[0,4,17,8,3,-16
     }, 1000);
   }
 
-  window.PriceMeter = { draw: draw, Feed: Feed, klines: klines, snapshot: snapshot, rows: rows, dateLine: dateLine, base: BASE,
+  window.PriceMeter = { draw: draw, nameFits: nameFits, nameRight: nameRight, fitName: fitName, NAME_MAX_X: NAME_MAX_X, Feed: Feed, klines: klines, snapshot: snapshot, rows: rows, dateLine: dateLine, base: BASE,
     colors: { UP: UP, DN: DN, WHITE: WHITE, CYAN: CYAN, NAME: NAMEC, GREY: LGREY } };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount); else mount();
 })();

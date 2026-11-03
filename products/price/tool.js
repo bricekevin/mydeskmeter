@@ -2,7 +2,9 @@
    encinitas3d.com/supported-stock-crypto/ (name -> pair map, symbol/name search),
    with the result drawn on the device screen (screen.js renderer).
    Crypto: live Binance.US pair list + live chart. Stocks: trimmed Nasdaq list snapshot
-   (data/stocks.json); Yahoo has no CORS, so stock charts are recorded or a preview. */
+   (data/stocks.json); Yahoo has no CORS, so a stock shows its recorded chart (data/recorded.json,
+   the S&P 500 + ETF candles the SEO pages use) or, without one, a listing with no device screen.
+   Only firmware states are drawn on the screen; page states (not found, no chart, blocked) sit beside it. */
 (function () {
   "use strict";
   var root = document.getElementById("meterTool");
@@ -53,6 +55,15 @@
 #meterTool .pmt-note a{color:var(--accent-ink)}\
 #meterTool .pmt-scr{background:var(--dark);border-radius:var(--r);padding:18px}\
 #meterTool .pmt-scr canvas{display:block;width:100%;height:auto;aspect-ratio:4/3;image-rendering:pixelated;border-radius:6px;background:#000}\
+#meterTool .pmt-warn{font-size:14px;color:#9a3412;margin-top:10px;line-height:1.45}\
+#meterTool .pmt-warn[hidden]{display:none}\
+#meterTool .pmt-scr.off canvas{display:none}\
+#meterTool .pmt-scr.off{background:var(--bg-soft);padding:28px}\
+#meterTool .pmt-off{display:none;color:var(--ink-2);font-size:16px;line-height:1.55}\
+#meterTool .pmt-scr.off .pmt-off{display:block}\
+#meterTool .pmt-off b{display:block;font-size:20px;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink)}\
+#meterTool .pmt-off code{font:600 15px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);background:#fff;border-radius:6px;padding:2px 6px}\
+#meterTool .pmt-scr.off .pmt-cap{display:none}\
 #meterTool .pmt-cap{color:#b9b3a9;font-size:14px;line-height:1.45;margin:14px 4px 2px;min-height:2.9em}\
 #meterTool .pmt-live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#92d900;margin-right:8px;vertical-align:1px}\
 #meterTool .pmt-live.off{background:#8b857c}\
@@ -73,10 +84,10 @@
         '<div class="pmt-try"><span>Try</span></div>' +
         '<div class="pmt-res" aria-live="polite"></div>' +
       '</div>' +
-      '<div class="pmt-scr"><canvas width="640" height="480" aria-label="priceMeter screen preview"></canvas><p class="pmt-cap"></p></div>' +
+      '<div class="pmt-scr"><canvas width="640" height="480" aria-label="priceMeter screen preview"></canvas><div class="pmt-off"></div><p class="pmt-cap"></p></div>' +
     '</div>';
   var $ = function (s) { return root.querySelector(s); };
-  var q = $("#pmtQ"), list = $("#pmtList"), res = $(".pmt-res"), cv = $("canvas"), cap = $(".pmt-cap");
+  var q = $("#pmtQ"), list = $("#pmtList"), res = $(".pmt-res"), cv = $("canvas"), cap = $(".pmt-cap"), scr = $(".pmt-scr"), off = $(".pmt-off");
   TRY.forEach(function (t) {
     var b = document.createElement("button"); b.type = "button"; b.textContent = t[0];
     b.addEventListener("click", function () { pickKey(t[1], t[2]); });
@@ -100,11 +111,13 @@
   }
 
   function baseOf(p) { for (var i = 0; i < QUOTES.length; i++) if (p.length > QUOTES[i].length && p.slice(-QUOTES[i].length) === QUOTES[i]) return [p.slice(0, -QUOTES[i].length), QUOTES[i]]; return [p, ""]; }
-  function nameForPair(p) {
+  // the name we suggest: the coin name when it fits the device's name slot, else the symbol
+  // (the portal's own defaults are Bitcoin, ETH, TSLA, AAPL, DOGE)
+  function coinName(p) {
     var k = Object.keys(CRYPTO_NAMES).find(function (k) { return CRYPTO_NAMES[k] === p; });
-    if (k && k.length <= 8) return k[0] + k.slice(1).toLowerCase();
-    return baseOf(p)[0].slice(0, 8);
+    return k ? k[0] + k.slice(1).toLowerCase() : "";
   }
+  function nameForPair(p) { return PM.fitName([coinName(p), baseOf(p)[0]]); }
 
   /* ---------- search ---------- */
   function search(raw) {
@@ -143,7 +156,7 @@
       .filter(function (o) { var key = o.k + o.id; if (seen[key]) return false; seen[key] = 1; return true; }).slice(0, 8);
   }
   function label(o) {
-    if (o.k === "c") { var b = baseOf(o.id); return { sym: o.id, nm: (nameForPair(o.id) !== b[0] ? nameForPair(o.id) + " \u00b7 " : "") + b[0] + (b[1] ? " / " + b[1] : ""), tag: "Crypto" }; }
+    if (o.k === "c") { var b = baseOf(o.id); return { sym: o.id, nm: (coinName(o.id) ? coinName(o.id) + " \u00b7 " : "") + b[0] + (b[1] ? " / " + b[1] : ""), tag: "Crypto" }; }
     var x = stockMap.get(o.id); return { sym: o.id, nm: x ? x.n : "", tag: x && x.etf ? "ETF" : "Stock" };
   }
 
@@ -180,18 +193,27 @@
   q.addEventListener("blur", function () { setTimeout(closeList, 120); });
 
   /* ---------- result + screen ---------- */
-  var feed = null, cur = null, visible = false, snap = null;
-  PM.snapshot().then(function (s) { snap = s; }).catch(function () {});
+  var feed = null, cur = null, visible = false, rec = null, recP = null;
+  function loadRec() {
+    return recP || (recP = fetch(BASE + "data/recorded.json").then(function (r) { if (!r.ok) throw r.status; return r.json(); })
+      .then(function (d) { rec = d; }).catch(function () { recP = null; }));
+  }
+  // the device view, or (for page states) a note in its place with no screen drawn
+  function screenOn() { scr.classList.remove("off"); cv.removeAttribute("aria-hidden"); }
+  function screenOff(html) { scr.classList.add("off"); cv.setAttribute("aria-hidden", "true"); off.innerHTML = html; }
   function stopFeed() { if (feed) { feed.stop(); feed = null; } }
 
   function pickKey(k, id) { Promise.all([cryptoReady, loadStocks()]).then(function () { choose({ k: k, id: id }); }); }
+  function fitNote(nm) {
+    return !nm || PM.nameFits(nm) ? "" : "On the device, \u201c" + esc(nm) + "\u201d runs into the status light and the date: the screen shows it exactly like this. Try a shorter name.";
+  }
 
   function choose(o) {
     closeList();
     if (o.k === "c" && !pairSet.has(o.id)) return notFound(o.id);
     if (o.k === "s" && !stockMap.has(o.id)) return notFound(o.id);
     var x = o.k === "s" ? stockMap.get(o.id) : null;
-    cur = { k: o.k, id: o.id, name: o.k === "c" ? nameForPair(o.id) : o.id.slice(0, 8), pair: o.k === "c" ? o.id : "Stock:" + o.id.toLowerCase() };
+    cur = { k: o.k, id: o.id, name: o.k === "c" ? nameForPair(o.id) : PM.fitName([o.id]), pair: o.k === "c" ? o.id : "Stock:" + o.id.toLowerCase() };
     q.value = o.k === "c" ? o.id : o.id;
     var what = o.k === "c" ? "Crypto pair on Binance.US" : (x.etf ? "ETF" : "US stock") + (x.n ? ": " + x.n : "");
     res.innerHTML =
@@ -202,9 +224,10 @@
         '<label for="pmtPair">Pair</label><input class="pmt-val" id="pmtPair" readonly value="' + esc(cur.pair) + '"><button type="button" class="pmt-copy" data-copy="pmtPair">Copy</button>' +
         '<label for="pmtName">Name</label><input class="pmt-val" id="pmtName" maxlength="8" value="' + esc(cur.name) + '"><button type="button" class="pmt-copy" data-copy="pmtName">Copy</button>' +
       "</div>" +
+      '<p class="pmt-warn" hidden></p>' +
       '<p class="pmt-note">' + (o.k === "c"
-        ? "Crypto is typed as the pair, exactly as Binance.US lists it. The name is yours to pick, up to 8 characters."
-        : "Stocks start with <b>Stock:</b> and then the ticker. Class shares use a dash, like Stock:brk-b. The name is yours to pick, up to 8 characters.") + "</p>";
+        ? "Crypto is typed as the pair, exactly as Binance.US lists it. The name is yours to pick, up to 8 characters; narrow ones fit best."
+        : "Stocks start with <b>Stock:</b> and then the ticker. Class shares use a dash, like Stock:brk-b. The name is yours to pick, up to 8 characters; narrow ones fit best.") + "</p>";
     res.querySelectorAll(".pmt-copy").forEach(function (b) {
       b.addEventListener("click", function () {
         var v = document.getElementById(b.dataset.copy).value;
@@ -213,7 +236,13 @@
       });
     });
     var nm = document.getElementById("pmtName");
-    nm.addEventListener("input", function () { cur.name = nm.value.slice(0, 8); paint(); });
+    var warn = res.querySelector(".pmt-warn");
+    nm.addEventListener("input", function () {
+      cur.name = nm.value.slice(0, 8);
+      var w = fitNote(cur.name); warn.innerHTML = w; warn.hidden = !w;
+      paint();
+    });
+    if (o.k === "s") loadRec().then(function () { if (cur && cur.id === o.id) paint(); });
     startScreen();
   }
 
@@ -224,8 +253,8 @@
     res.innerHTML = '<div class="pmt-st no"><span class="pmt-dot"></span>' + esc(t || "Nothing") + " was not found</div>" +
       '<p class="pmt-sub">Crypto must be a pair listed on Binance.US, like BTCUSDT. Stocks must be US-listed, like TSLA.' +
       (sug.length ? " Did you mean " + sug.map(function (s) { return "<b>" + esc(s) + "</b>"; }).join(", ") + "?" : "") + "</p>";
-    PM.draw(cv, { name: t.toUpperCase().slice(0, 8), candles: [], msg: [["Not found", PM.colors.DN]] });
-    caption(false, "Not in the Binance.US pair list or our US stock list.");
+    screenOff("<b>Nothing to show</b>" + esc(t || "That") + " is not in the Binance.US pair list or our US stock list, so the device would have no chart for it.");
+    cap.textContent = "";
   }
 
   function caption(live, text) { cap.innerHTML = '<span class="pmt-live' + (live ? "" : " off") + '"></span>' + text; }
@@ -234,27 +263,35 @@
   function paint() {
     if (!cur) return;
     if (cur.k === "s") {
-      var s = snap && snap.stocks[cur.id];
-      if (s) {
-        PM.draw(cv, { name: cur.name, stock: true, tf: s.tf, candles: PM.rows(s.k), date: new Date(snap.recorded) });
-        caption(false, "Recorded " + fmtRec(snap.recorded) + " from Yahoo Finance, " + (s.tf === "1w" ? "weekly" : "daily") + " candles. Your browser can't load Yahoo, the device can: it refreshes every 15 s.");
+      var k = rec && rec.k[cur.id];
+      if (k) {
+        screenOn();
+        PM.draw(cv, { name: cur.name, stock: true, tf: "1d", candles: PM.rows(k), date: new Date(rec.recorded) });
+        caption(false, "Recorded " + fmtRec(rec.recorded) + " from Yahoo Finance, daily candles. Your browser can't load Yahoo, the device can: it refreshes every 15 s.");
+      } else if (recP && !rec) {
+        screenOff("<b>Loading the recorded chart\u2026</b>"); cap.textContent = "";
       } else {
-        PM.draw(cv, { name: cur.name, candles: [], info: cur.pair, msg: [["Supported", PM.colors.UP], ["Chart loads on", PM.colors.WHITE], ["the device", PM.colors.WHITE]] });
-        caption(false, "Preview. Stock charts come from Yahoo Finance, which only the device can load, not this page.");
+        var x = stockMap.get(cur.id);
+        screenOff("<b>" + esc(cur.id) + (x && x.n ? " \u00b7 " + esc(x.n) : "") + "</b>Supported. Type <code>" + esc(cur.pair) +
+          "</code> on the setup page. We have no recorded chart for it, so there is no screen to show here: only the device can load Yahoo Finance.");
+        cap.textContent = "";
       }
       return;
     }
     var K = feed && feed.data[cur.id];
     if (feed && feed.mode === "replay" && K) {
+      screenOn();
       PM.draw(cv, { name: cur.name, tf: "1h", candles: K, date: new Date(feed.at * 1000) });
       caption(false, "Binance.US did not answer from this network, so this replays data recorded " + fmtRec(feed.recorded) + ". If Binance.US is blocked where you are, the device can't reach it either.");
     } else if (feed && (feed.mode === "replay" || feed.mode === "down")) {
-      PM.draw(cv, { name: cur.name, candles: [], msg: [["Can't reach", PM.colors.WHITE], ["Binance.US", PM.colors.WHITE]] });
+      screenOff("<b>Can't reach Binance.US</b>There is no screen to show for " + esc(cur.id) + " from here.");
       caption(false, "Binance.US did not answer from this network. Some countries and networks block it; the device needs it too. Check the test links on our <a href=\"https://encinitas3d.com/supported-stock-crypto/\" target=\"_blank\" rel=\"noopener\">setup page</a>.");
     } else if (K && K.length) {
+      screenOn();
       PM.draw(cv, { name: cur.name, tf: "1h", candles: K, busy: feed.busy });
       caption(!reduced, (reduced ? "From" : "Live from") + " Binance.US, the same feed the device uses. One-hour candles; the last one is still forming.");
     } else {
+      screenOn();
       PM.draw(cv, { name: cur.name, candles: [] });
       caption(false, "Loading from Binance.US");
     }
