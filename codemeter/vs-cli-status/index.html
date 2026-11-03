@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>codeMeter vs /usage and /status in the CLI | codeMeter</title>
+<meta name="description" content="Claude Code's /usage and the Codex CLI's /status show your limits when you ask. codeMeter shows the same numbers all the time, with your terminal closed.">
+<link rel="canonical" href="https://mydeskmeter.com/codemeter/vs-cli-status/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="codeMeter vs /usage and /status in the CLI | codeMeter">
+<meta property="og:description" content="Claude Code's /usage and the Codex CLI's /status show your limits when you ask. codeMeter shows the same numbers all the time, with your terminal closed.">
+<meta property="og:url" content="https://mydeskmeter.com/codemeter/vs-cli-status/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/codemeter.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will codeMeter and the Codex CLI show the same percent?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both show the budget left from the same endpoint. On the Claude + Codex screen codeMeter shows percent used instead, so the bars compare."}}, {"@type": "Question", "name": "Does checking use up my Codex limit?", "acceptedAnswer": {"@type": "Answer", "text": "No. codeMeter reads the same usage endpoint the Codex CLI uses for /status. It makes no model calls, so it uses none of your Codex limit."}}, {"@type": "Question", "name": "Does checking use up my Claude limit?", "acceptedAnswer": {"@type": "Answer", "text": "Each check is one tiny request on Anthropic's cheapest model, once a minute. It is a negligible slice of your allowance."}}, {"@type": "Question", "name": "Is a desk display worth it if the usage page is free?", "acceptedAnswer": {"@type": "Answer", "text": "If you check often, or keep hitting a limit mid-task, a screen that is always in view saves the checking. If you rarely look, the free page is enough."}}]}</script>
+
+</head>
+<body style="--accent: #d9693f; --accent-ink: #d9693f;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="../../codemeter/">codeMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="../../codemeter/">codeMeter</a><a href="../../codemeter/plans/">Plans</a><a href="../../codemeter/guides/">Guides</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="../../codemeter/#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="../../">myDeskMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/">codeMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/guides/">Guides</a> <span aria-hidden="true">/</span> <span>codeMeter vs the CLI.</span></nav>
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Compare</p>
+      <h1 class="reveal">codeMeter vs the CLI.</h1>
+      <p class="lede reveal">/usage and /status answer when you ask. codeMeter answers before you ask.</p>
+      <div class="cta reveal">
+        <a class="btn" href="../../codemeter/#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><link rel="stylesheet" href="../../seo/codemeter/landing.css"><div class="device"><img class="device-photo" src="../../assets/finishes/blue.webp" alt="codeMeter in the Codex theme, worded like the Codex CLI&#x27;s /status" width="1000" height="750" fetchpriority="high"><div class="screen"><img alt="" src="../../products/codemeter/screens/fw_codex.webp"></div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="same">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Same source</p><h2>The same numbers.</h2></div>
+    <div class="reveal"><div class="cm-prose"><p>For Codex, codeMeter reads the same usage endpoint the Codex CLI uses for /status, titles the cards the same way (<i>5h limit</i>, <i>Weekly limit</i>) and shows the budget left, so the two agree.</p><p>For Claude, it reads the usage your account reports with each request: the percent used and the reset time for each limit.</p></div></div>
+  </div>
+</section>
+
+<section class="sec sec-soft" id="table">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Side by side</p><h2>What changes.</h2></div>
+    <div class="reveal"><div class="cm-tbl-wrap"><table class="cm-tbl"><thead><tr><th scope="col"></th><th scope="col">CLI command</th><th scope="col">codeMeter</th></tr></thead><tbody><tr><td>Cost</td><td>Free</td><td>From $119, once</td></tr><tr><td>When</td><td>When you type it</td><td>Always, every 60 seconds</td></tr><tr><td>Needs</td><td>A terminal session</td><td>Wi-Fi; your computer can be off</td></tr><tr><td>Pace</td><td>Numbers only</td><td>Amber or red when ahead of the clock</td></tr><tr><td>Two services</td><td>Two CLIs</td><td>Claude + Codex on one screen</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions.</h2></div>
+    <div class="faq reveal"><details><summary>Will codeMeter and the Codex CLI show the same percent?</summary><p>Yes. Both show the budget left from the same endpoint. On the Claude + Codex screen codeMeter shows percent used instead, so the bars compare.</p></details><details><summary>Does checking use up my Codex limit?</summary><p>No. codeMeter reads the same usage endpoint the Codex CLI uses for /status. It makes no model calls, so it uses none of your Codex limit.</p></details><details><summary>Does checking use up my Claude limit?</summary><p>Each check is one tiny request on Anthropic's cheapest model, once a minute. It is a negligible slice of your allowance.</p></details><details><summary>Is a desk display worth it if the usage page is free?</summary><p>If you check often, or keep hitting a limit mid-task, a screen that is always in view saves the checking. If you rarely look, the free page is enough.</p></details></div>
+  </div>
+</section>
+
+
+<section class="sec sec-soft" id="related">
+  <div class="wrap">
+    <div class="head reveal"><h2>Keep reading</h2></div>
+    <ul class="related reveal"><li><a href="../../codemeter/vs-usage-page/">codeMeter vs the usage page</a></li><li><a href="../../codemeter/vs-menu-bar-apps/">codeMeter vs menu bar apps</a></li><li><a href="../../codemeter/codex-usage-limit/">Codex usage limit</a></li><li><a href="../../codemeter/claude-and-codex/">Claude + Codex</a></li><li><a href="../../codemeter/guides/">All guides</a></li></ul>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="reveal">Stop guessing.</h2>
+    <a class="btn btn-lg reveal" href="../../codemeter/#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="../../codemeter/#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../../codemeter/">codeMeter</a><a href="../../price/">priceMeter</a><a href="../../sports/">sportsMeter</a><a href="../../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">codeMeter is an independent product. Claude and Anthropic are trademarks of Anthropic; OpenAI, ChatGPT and Codex are trademarks of OpenAI; Datadog is a trademark of Datadog, Inc. Not made by, endorsed by, or affiliated with any of them.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "landing", "slug": "codemeter", "name": "codeMeter", "root": "../../"};</script>
+<script src="../../assets/shot.js"></script>
+<script src="../../app.js"></script>
+
+<script src="../../seo/codemeter/landing.js"></script>
+
+</body>
+</html>

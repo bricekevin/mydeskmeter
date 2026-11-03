@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>socialMeter: a live follower counter for your desk</title>
+<meta name="description" content="socialMeter is a small Wi-Fi desk display that shows your live follower, subscriber, viewer or sales count from YouTube, Twitch, GitHub, Etsy and 16 more platforms. Updates install themselves. From $119.">
+<link rel="canonical" href="https://mydeskmeter.com/social/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="socialMeter: your follower count, live on your desk">
+<meta property="og:description" content="socialMeter is a small Wi-Fi desk display that shows your live follower, subscriber, viewer or sales count from YouTube, Twitch, GitHub, Etsy and 16 more platforms. Updates install themselves. From $119.">
+<meta property="og:url" content="https://mydeskmeter.com/social/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/social.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "socialMeter", "description": "socialMeter is a small Wi-Fi desk display that shows your live follower, subscriber, viewer or sales count from YouTube, Twitch, GitHub, Etsy and 16 more platforms. Updates install themselves. From $119.", "brand": {"@type": "Brand", "name": "Encinitas 3D"}, "image": ["https://mydeskmeter.com/assets/og/social.jpg"], "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "119", "highPrice": "149", "offerCount": "15", "availability": "https://schema.org/InStock", "url": "https://encinitas3d.com/product/social-media-counter-wifi-desk-display/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which platforms does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "20: YouTube, YouTube Live, Twitch, Kick, Bluesky, Mastodon, Telegram, Spotify, Last.fm, GitHub, npm, Docker Hub, Discord, Discourse, Steam, Roblox, Minecraft servers, Wikipedia, Etsy and Shopify. Instagram, TikTok and X are not supported, because they do not let a device like this read the count. What it shows for each platform"}}, {"@type": "Question", "name": "How often does it update?", "acceptedAnswer": {"@type": "Answer", "text": "Every 60 seconds. GitHub without a token checks every 2 minutes to stay inside GitHub's limit. YouTube rounds subscriber counts itself, so that number moves in steps."}}, {"@type": "Question", "name": "What do the circle and the dot at the top mean?", "acceptedAnswer": {"@type": "Answer", "text": "The small circle empties until the next check, so you can see when the number will move. The dot is green while the number is live, amber while it shows the last number it read, and red when something needs a look, like a handle it cannot find."}}, {"@type": "Question", "name": "Do I need an API key or a login?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not. 11 platforms need only a name, like a handle or a server address. YouTube, YouTube Live, Twitch, Kick, Spotify, Telegram, Last.fm, Etsy and Shopify need a free key you make once; it never asks for your password."}}, {"@type": "Question", "name": "Does it read anything private?", "acceptedAnswer": {"@type": "Answer", "text": "No. It reads public counts. Etsy and Shopify are the exception: those are your own shop's numbers, read with your own key, which stays on the device."}}, {"@type": "Question", "name": "Can it show more than one account?", "acceptedAnswer": {"@type": "Answer", "text": "One account at a time. To switch, hold the middle button for about seven seconds and pick again on your phone. Your Wi-Fi is kept."}}, {"@type": "Question", "name": "What does \"today\" mean?", "acceptedAnswer": {"@type": "Answer", "text": "The gain since the day's first reading, in your time zone. Live viewer and player counts leave it out, because they rise and fall all day."}}, {"@type": "Question", "name": "Is there a subscription?", "acceptedAnswer": {"@type": "Answer", "text": "No. Updates are free and install themselves over Wi-Fi. If an update ever fails to start, it rolls back to the previous version."}}, {"@type": "Question", "name": "What do I need, and what are the specs?", "acceptedAnswer": {"@type": "Answer", "text": "2.4 GHz Wi-Fi with a WPA2 password. It has a 2-inch 320 by 240 colour screen, an ESP32, three buttons, and USB-C power or a built-in battery."}}]}</script>
+
+</head>
+<body style="--accent: #0a64c2; --accent-ink: #0a64c2;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="#top">socialMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#glance">How it works</a><a href="#modes">Setups</a><a href="#teams">Gifts</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">For YouTube, Twitch, GitHub and 17 more</p>
+      <h1 class="reveal">Your follower count,<br>on your desk.</h1>
+      <p class="lede reveal">A small display that shows your live count and what today added. Every minute. No app, no phone.</p>
+      <div class="cta reveal">
+        <a class="btn" href="#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><div class="device" id="heroDevice">
+  <img class="device-photo" src="../assets/finishes/red.webp" alt="socialMeter on a red stand showing a YouTube channel with 48,200 subscribers" width="1000" height="750" fetchpriority="high">
+  <div class="screen"><canvas class="meter-canvas" width="640" height="480" data-meter-live aria-label="socialMeter on a red stand showing a YouTube channel with 48,200 subscribers"></canvas></div>
+  
+</div></div>
+  </div>
+</section>
+
+
+<!-- IN USE: a person using it; the screen is the real firmware screen composited on -->
+<section class="sec" id="use">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">In use</p>
+      <h2>Your count, while you create.</h2>
+      <p>It sits by the mic and keeps counting while you work on the next one.</p>
+    </div>
+    <div class="use reveal">
+      <video autoplay muted loop playsinline preload="metadata" poster="../products/social/media/use-poster.jpg" aria-label="socialMeter in use">
+        <source src="../products/social/media/use.mp4" type="video/mp4">
+      </video>
+      <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll("#use video").forEach(function (v) { v.pause(); v.removeAttribute("autoplay"); });</script>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="glance">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>Watch it grow.<br><span class="soft">One number, all day.</span></h2>
+    </div>
+    <div class="glance reveal">
+      <div class="panel-dark">
+        <div class="flat" data-flat id="flat">
+          <div class="screen"><canvas class="meter-canvas" width="640" height="480" data-meter-live aria-label="socialMeter screen"></canvas></div>
+          
+          <svg class="dim" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="holes"><rect width="100" height="100" fill="#fff"/><g id="holeRects" fill="#000"></g></mask></defs><rect width="100" height="100" fill="#000" mask="url(#holes)"/></svg>
+        </div>
+      </div>
+      <ul class="facts">
+        <li data-i="0"><b>Your number</b><span>Subscribers, followers, viewers or sales, for the account you pick.</span></li>
+        <li data-i="1"><b>What today added</b><span>The gain since the day's first reading. Viewer and player counts leave it out.</span></li>
+        <li data-i="2"><b>The next milestone</b><span>A bar to the next round number, like 50K or 1M.</span></li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SETUPS -->
+<section class="sec sec-soft" id="modes">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Setups</p>
+      <h2>One device. 20 platforms.</h2>
+      <p>Pick one on your phone during setup. Change it any time.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="Setups">
+      <button role="tab" aria-selected="true" data-mode="creators">Creators</button>
+      <button role="tab" aria-selected="false" data-mode="live">Streams and games</button>
+      <button role="tab" aria-selected="false" data-mode="dev">Developers</button>
+      <button role="tab" aria-selected="false" data-mode="shops">Shops</button>
+      
+    </div>
+    <div class="mode reveal">
+      <div class="tile"><div class="device" id="modeDevice">
+  <img class="device-photo" src="../assets/finishes/black.webp" alt="" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/social/screens/sm_youtube.webp"></div>
+</div></div>
+      <div class="mode-copy" id="modeCopy" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BROWSE: links into this meter's SEO landing pages (content.json browse) -->
+<section class="sec sec-tight" id="browse">
+  <div class="wrap">
+    <p class="browse reveal"><span>Find your platform:</span> <a href="platforms/">All 20 platforms</a> <span aria-hidden="true">&middot;</span> <a href="for/youtubers/">YouTubers</a> <span aria-hidden="true">&middot;</span> <a href="for/streamers/">Streamers</a> <span aria-hidden="true">&middot;</span> <a href="for/developers/">Developers</a> <span aria-hidden="true">&middot;</span> <a href="for/shop-owners/">Shop owners</a></p>
+  </div>
+</section>
+
+
+
+<!-- LOOKUP TOOL (products/<slug>/tool.js mounts into #meterTool) -->
+<section class="sec" id="tool">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Try it</p>
+      <h2>See your count.</h2>
+      <p>Pick a platform. Seven load your real number right here, the way the device reads it. The rest show a sample screen.</p>
+    </div>
+    <div class="tool reveal" id="meterTool"></div>
+  </div>
+</section>
+
+
+<!-- UPDATES -->
+<section class="sec" id="updates">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Updates</p>
+      <h2>It keeps adding platforms.</h2>
+      <p>We add platforms and fixes, and socialMeter installs them over Wi-Fi by itself.</p>
+    </div>
+    <div class="story reveal">
+      <div class="beat"><span class="date">Sep 12, 2026</span><p>Eight new platforms, including Kick, Roblox and Minecraft.</p></div>
+      <div class="beat"><span class="date">Same day</span><p>Every socialMeter updates itself to offer them.</p></div>
+      <div class="beat"><span class="date">Since July</span><p><b>8 free updates.</b> No subscription.</p></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- BUILD -->
+<section class="sec sec-soft" id="build">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Build yours</p>
+      <h2>Make it yours.</h2>
+      <p>Stands are 3D-printed to order in Encinitas, California.</p>
+    </div>
+    <div class="builder reveal">
+      <div class="b-stage tile"><div class="device" id="buildDevice">
+  <img class="device-photo" src="../assets/finishes/black.webp" alt="socialMeter preview" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/social/screens/sm_youtube.webp"></div>
+</div></div>
+      <div class="b-panel">
+        <fieldset><legend>Stand <span id="finishName">Black</span></legend><div class="swatches" id="finishes"></div></fieldset>
+        <fieldset><legend>Power</legend><div class="opts" id="powers"></div><p class="hint" id="powerHint"></p></fieldset>
+        <fieldset><legend>Preview screen</legend><div class="opts opts-wrap" id="screens"></div></fieldset>
+        <div class="b-buy">
+          <p class="b-price" id="price">$119</p>
+          <a class="btn btn-lg" id="buyBtn" href="#" rel="noopener">Buy now</a>
+        </div>
+        <p class="fine" id="summary"></p>
+        <p class="fine">Includes the stand, a USB-C cable and a setup card. Checkout at encinitas3d.com.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM -->
+<section class="sec" id="teams">
+  <div class="wrap">
+    <div class="team-tile reveal">
+      <div class="team-copy">
+        <p class="eyebrow">Gifts</p>
+        <h2>A gift they will look at every day.</h2>
+        <p>Their own number, live on their desk. Ordering several for a team or an event? Ask us.</p>
+        
+        <a class="btn btn-light team-cta" href="mailto:info@encinitas3d.com?subject=socialMeter%20custom%20order">Ask about a custom order</a>
+        
+      </div>
+      <div class="team-shot">
+        <div class="tile">
+          <div class="device" id="customDevice">
+  <img class="device-photo" src="../assets/finishes/gold.webp" alt="" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/social/screens/sm_youtube.webp"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section class="sec sec-soft" id="setup">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Getting started</p>
+      <h2>Set up in a few minutes.</h2>
+    </div>
+    <ol class="steps reveal">
+      <li><span>1</span><b>Plug it in</b><p>Scan the code on its screen to join its Wi-Fi. The setup page opens.</p></li>
+      <li><span>2</span><b>Fill in one page</b><p>Your home Wi-Fi, what to count, and your handle.</p></li>
+      <li><span>3</span><b>Add a key if asked</b><p>11 of the 20 platforms need only a name. The rest take a free key, and the guide shows how.</p></li>
+      
+    </ol>
+    <p class="note reveal">Your handle and key stay on the device. No account with us, no app, nothing left running on your computer. <a class="link" href="https://encinitas3d.com/socialmeter/?utm_content=setup" data-utm>Setup guide</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions</h2></div>
+    <div class="faq reveal">
+      <details><summary>Which platforms does it work with?</summary><p>20: YouTube, YouTube Live, Twitch, Kick, Bluesky, Mastodon, Telegram, Spotify, Last.fm, GitHub, npm, Docker Hub, Discord, Discourse, Steam, Roblox, Minecraft servers, Wikipedia, Etsy and Shopify. Instagram, TikTok and X are not supported, because they do not let a device like this read the count. <a class="link" href="platforms/">What it shows for each platform</a></p></details>
+      <details><summary>How often does it update?</summary><p>Every 60 seconds. GitHub without a token checks every 2 minutes to stay inside GitHub's limit. YouTube rounds subscriber counts itself, so that number moves in steps.</p></details>
+      <details><summary>What do the circle and the dot at the top mean?</summary><p>The small circle empties until the next check, so you can see when the number will move. The dot is green while the number is live, amber while it shows the last number it read, and red when something needs a look, like a handle it cannot find.</p></details>
+      <details><summary>Do I need an API key or a login?</summary><p>Usually not. 11 platforms need only a name, like a handle or a server address. YouTube, YouTube Live, Twitch, Kick, Spotify, Telegram, Last.fm, Etsy and Shopify need a free key you make once; it never asks for your password.</p></details>
+      <details><summary>Does it read anything private?</summary><p>No. It reads public counts. Etsy and Shopify are the exception: those are your own shop's numbers, read with your own key, which stays on the device.</p></details>
+      <details><summary>Can it show more than one account?</summary><p>One account at a time. To switch, hold the middle button for about seven seconds and pick again on your phone. Your Wi-Fi is kept.</p></details>
+      <details><summary>What does "today" mean?</summary><p>The gain since the day's first reading, in your time zone. Live viewer and player counts leave it out, because they rise and fall all day.</p></details>
+      <details><summary>Is there a subscription?</summary><p>No. Updates are free and install themselves over Wi-Fi. If an update ever fails to start, it rolls back to the previous version.</p></details>
+      <details><summary>What do I need, and what are the specs?</summary><p>2.4 GHz Wi-Fi with a WPA2 password. It has a 2-inch 320 by 240 colour screen, an ESP32, three buttons, and USB-C power or a built-in battery.</p></details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="sec sec-soft" id="family">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">myDeskMeter</p><h2>Same device, other numbers.</h2></div>
+    <div class="cards cards-3 reveal">
+      
+      <a class="card" href="../codemeter/" style="--accent: #d9693f">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/orange.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/codemeter/screens/fw_2x_wk_5hwk.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">codeMeter</p>
+        <p class="card-text">How much of your AI coding limits you have used, and when they reset.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+      <a class="card" href="../price/" style="--accent: #4d7a00">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/gold.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/price/screens/btc_1h.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">priceMeter</p>
+        <p class="card-text">Live prices and candlestick charts for up to 25 stocks and crypto.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+      <a class="card" href="../sports/" style="--accent: #178a56">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/wood.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/sports/screens/live_football.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">sportsMeter</p>
+        <p class="card-text">Your teams' record, next game and live score, up to six at once.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap close-in reveal">
+    <h2>Watch it climb.</h2>
+    <a class="btn btn-lg" href="#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../codemeter/">codeMeter</a><a href="../price/">priceMeter</a><a href="../sports/">sportsMeter</a><a href="../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">socialMeter is an independent product. YouTube, Twitch, Kick, Bluesky, Mastodon, Telegram, Spotify, Last.fm, GitHub, npm, Docker Hub, Discord, Discourse, Steam, Roblox, Minecraft, Wikipedia, Etsy, Shopify, Instagram, TikTok and X are trademarks of their respective owners. Not made by, endorsed by, or affiliated with any of them.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "product", "slug": "social", "name": "socialMeter", "glance": {"eyebrow": "How it works", "h2": "Watch it grow.", "soft": "One number, all day.", "screen": "live", "facts": [{"key": "count", "t": "Your number", "d": "Subscribers, followers, viewers or sales, for the account you pick.", "boxes": [[6.2, 16.7, 65.9, 36.7], [6.2, 48.8, 49.1, 12.1]]}, {"key": "today", "t": "What today added", "d": "The gain since the day's first reading. Viewer and player counts leave it out.", "boxes": [[60.0, 47.9, 34.7, 10.8]]}, {"key": "milestone", "t": "The next milestone", "d": "A bar to the next round number, like 50K or 1M.", "boxes": [[1.6, 84.6, 96.9, 15.4]]}]}, "modes": [{"key": "creators", "label": "Creators", "screen": "sm_youtube", "h": "Followers, and what today added.", "p": "Your count, today's gain, and how close the next milestone is.", "for": "YouTube, Bluesky, Mastodon, Telegram, Spotify, Last.fm, Wikipedia", "plats": ["youtube", "bluesky", "mastodon", "telegram", "spotify", "lastfm", "wikipedia"]}, {"key": "live", "label": "Streams and games", "screen": "sm_twitch", "h": "Who is on right now.", "p": "Live viewers, players or members online, refreshed every minute. A stream shows 0 while you are offline.", "for": "Twitch, Kick, YouTube Live, Discord, Steam, Roblox, Minecraft", "plats": ["twitch", "kick", "youtube_live", "discord", "steam", "roblox", "minecraft"]}, {"key": "dev", "label": "Developers", "screen": "sm_github", "h": "Your project, by the numbers.", "p": "Followers, weekly downloads, image pulls or forum members, with the details underneath.", "for": "GitHub, npm, Docker Hub, Discourse", "plats": ["github", "npm", "dockerhub", "discourse"]}, {"key": "shops", "label": "Shops", "screen": "sm_etsy", "h": "Every sale, on your desk.", "p": "Your shop's sales or orders, read with your own key. The key stays on the device.", "for": "Etsy, Shopify", "plats": ["etsy", "shopify"]}], "builder": {"screens": [{"key": "creators", "label": "Creators", "screen": "sm_youtube"}, {"key": "live", "label": "Streams and games", "screen": "sm_twitch"}, {"key": "dev", "label": "Developers", "screen": "sm_github"}, {"key": "shops", "label": "Shops", "screen": "sm_etsy"}], "store": {"url": "https://encinitas3d.com/product/social-media-counter-wifi-desk-display/", "params": {"attribute_pa_finish": "{finish}", "attribute_pa_battery": "{power}"}, "power_values": {"usb": "usb-c", "standard": "standard", "jumbo": "all-day"}}, "prices": {"black-usb": 119, "black-standard": 119, "black-jumbo": 139, "glow-standard": 129, "gold-usb": 129, "gold-standard": 129, "orange-usb": 129, "rainbow-usb": 129, "rainbow-standard": 129, "red-usb": 129, "red-standard": 129, "red-jumbo": 149, "wood-usb": 129, "wood-standard": 129, "wood-jumbo": 149}}, "logo_preview": false};</script>
+<script src="../assets/shot.js"></script>
+<script src="../app.js"></script>
+<script src="../products/social/screen.js"></script>
+<script src="../products/social/tool.js"></script>
+
+
+</body>
+</html>

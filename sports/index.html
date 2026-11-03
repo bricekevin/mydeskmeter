@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sportsMeter: a live sports scoreboard for your desk</title>
+<meta name="description" content="sportsMeter is a small Wi-Fi desk display that follows up to six teams: record, standings, next game and the live score. Pro and college football, basketball, baseball, hockey and soccer. No app, no subscription. From $119.">
+<link rel="canonical" href="https://mydeskmeter.com/sports/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="sportsMeter: your team's score, on your desk">
+<meta property="og:description" content="sportsMeter is a small Wi-Fi desk display that follows up to six teams: record, standings, next game and the live score. Pro and college football, basketball, baseball, hockey and soccer. No app, no subscription. From $119.">
+<meta property="og:url" content="https://mydeskmeter.com/sports/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/sports.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "sportsMeter", "description": "sportsMeter is a small Wi-Fi desk display that follows up to six teams: record, standings, next game and the live score. Pro and college football, basketball, baseball, hockey and soccer. No app, no subscription. From $119.", "brand": {"@type": "Brand", "name": "Encinitas 3D"}, "image": ["https://mydeskmeter.com/assets/og/sports.jpg"], "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "119", "highPrice": "149", "offerCount": "18", "availability": "https://schema.org/InStock", "url": "https://encinitas3d.com/product/live-sports-scoreboard-desk-display/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which sports and leagues does it cover?", "acceptedAnswer": {"@type": "Answer", "text": "Football, basketball, baseball, hockey and soccer: NFL, NBA, MLB, NHL, WNBA, MLS, NWSL, college football, men's and women's college basketball, the Premier League, Liga MX, LaLiga, Bundesliga, Serie A and Ligue 1. That is 1,785 teams; find yours."}}, {"@type": "Question", "name": "How many teams can it follow?", "acceptedAnswer": {"@type": "Answer", "text": "Up to six, from any mix of sports. They take turns on the screen, and a live game takes over until it ends."}}, {"@type": "Question", "name": "How fast do scores update?", "acceptedAnswer": {"@type": "Answer", "text": "During a game it checks every 20 seconds. Scores usually trail the live action by under a minute; streams are often further behind than that."}}, {"@type": "Question", "name": "What does it show when there is no game?", "acceptedAnswer": {"@type": "Answer", "text": "The record, place in the standings and the next game in your time zone. Between seasons the game card reads \"No game scheduled\" until the next one is on the calendar."}}, {"@type": "Question", "name": "Does it show my team's logo?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Once it is online it fetches your team's logo and uses the team's colours; until a logo arrives it shows the team's initials on a block of its colour. The screens on this page show real teams with sample season numbers."}}, {"@type": "Question", "name": "Can I change teams later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Hold the middle button for 2 seconds and open the address it shows on a phone on the same Wi-Fi. Your Wi-Fi stays set up."}}, {"@type": "Question", "name": "Is there an app or a subscription?", "acceptedAnswer": {"@type": "Answer", "text": "No. Setup is a web page on your phone, and there is nothing to renew. Updates install themselves over Wi-Fi."}}, {"@type": "Question", "name": "What Wi-Fi does it need?", "acceptedAnswer": {"@type": "Answer", "text": "2.4 GHz Wi-Fi with a password. Guest or office networks that make you sign in on a web page will not work."}}, {"@type": "Question", "name": "What are the specs?", "acceptedAnswer": {"@type": "Answer", "text": "2-inch 320 by 240 colour screen, ESP32, 2.4 GHz Wi-Fi, three buttons, USB-C power or a built-in battery."}}]}</script>
+
+</head>
+<body style="--accent: #178a56; --accent-ink: #178a56;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="#top">sportsMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#glance">How it works</a><a href="#modes">Setups</a><a href="#teams">Gifts</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Pro and college, five sports</p>
+      <h1 class="reveal">Your team's score,<br>on your desk.</h1>
+      <p class="lede reveal">A small display that follows up to six teams: the record, the next game and the live score. No app, no subscription.</p>
+      <div class="cta reveal">
+        <a class="btn" href="#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><div class="device" id="heroDevice">
+  <img class="device-photo" src="../assets/finishes/wood.webp" alt="sportsMeter on a wood stand showing a live Kansas City Chiefs game" width="1000" height="750" fetchpriority="high">
+  <div class="screen"><canvas class="meter-canvas" width="640" height="480" data-meter-live aria-label="sportsMeter on a wood stand showing a live Kansas City Chiefs game"></canvas></div>
+  
+</div></div>
+  </div>
+</section>
+
+
+<!-- IN USE: a person using it; the screen is the real firmware screen composited on -->
+<section class="sec" id="use">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">In use</p>
+      <h2>The score, without the app.</h2>
+      <p>On the coffee table during the game, or on your desk when you can't watch.</p>
+    </div>
+    <div class="use reveal">
+      <video autoplay muted loop playsinline preload="metadata" poster="../products/sports/media/use-poster.jpg" aria-label="sportsMeter in use">
+        <source src="../products/sports/media/use.mp4" type="video/mp4">
+      </video>
+      <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll("#use video").forEach(function (v) { v.pause(); v.removeAttribute("autoplay"); });</script>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="glance">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>Know where they stand.<br><span class="soft">And when they play next.</span></h2>
+    </div>
+    <div class="glance reveal">
+      <div class="panel-dark">
+        <div class="flat" data-flat id="flat">
+          <div class="screen"><canvas class="meter-canvas" width="640" height="480" data-meter-live aria-label="sportsMeter screen"></canvas></div>
+          
+          <svg class="dim" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="holes"><rect width="100" height="100" fill="#fff"/><g id="holeRects" fill="#000"></g></mask></defs><rect width="100" height="100" fill="#000" mask="url(#holes)"/></svg>
+        </div>
+      </div>
+      <ul class="facts">
+        <li data-i="0"><b>The season so far</b><span>The record and place in the standings, under your team's logo and in its colours.</span></li>
+        <li data-i="1"><b>The next game</b><span>Who and when, in your time zone. On game day the card lights up.</span></li>
+        <li data-i="2"><b>The numbers behind it</b><span>Streak and points for and against, taking turns with home and away records.</span></li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SETUPS -->
+<section class="sec sec-soft" id="modes">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Setups</p>
+      <h2>One team or six. Any sport.</h2>
+      <p>Pick your teams on your phone. Change them any time.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="Setups">
+      <button role="tab" aria-selected="true" data-mode="one">One team</button>
+      <button role="tab" aria-selected="false" data-mode="six">Up to six</button>
+      <button role="tab" aria-selected="false" data-mode="live">Live games</button>
+      <button role="tab" aria-selected="false" data-mode="hold">Stay on one</button>
+      
+    </div>
+    <div class="mode reveal">
+      <div class="tile"><div class="device" id="modeDevice">
+  <img class="device-photo" src="../assets/finishes/black.webp" alt="" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/sports/screens/idle_football.webp"></div>
+</div></div>
+      <div class="mode-copy" id="modeCopy" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BROWSE: links into this meter's SEO landing pages (content.json browse) -->
+<section class="sec sec-tight" id="browse">
+  <div class="wrap">
+    <p class="browse reveal"><span>Find your team:</span> <a href="teams/">All 1,784 teams</a> <span aria-hidden="true">&middot;</span> <a href="teams/nfl/">NFL</a> <span aria-hidden="true">&middot;</span> <a href="teams/nba/">NBA</a> <span aria-hidden="true">&middot;</span> <a href="teams/mlb/">MLB</a> <span aria-hidden="true">&middot;</span> <a href="teams/nhl/">NHL</a> <span aria-hidden="true">&middot;</span> <a href="teams/ncaaf/">College</a></p>
+  </div>
+</section>
+
+
+
+<!-- LOOKUP TOOL (products/<slug>/tool.js mounts into #meterTool) -->
+<section class="sec" id="tool">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Find your team</p>
+      <h2>See your team on it.</h2>
+      <p>Search 1,785 teams in 16 leagues. Add up to six and watch them take turns, with their real next game or live score.</p>
+    </div>
+    <div class="tool reveal" id="meterTool"></div>
+  </div>
+</section>
+
+
+<!-- UPDATES -->
+<section class="sec" id="updates">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Updates</p>
+      <h2>It keeps up with the season.</h2>
+      <p>Schedules and standings come in on their own. When we improve sportsMeter, it installs the new version over Wi-Fi by itself.</p>
+    </div>
+    <div class="story reveal">
+      <div class="beat"><span class="date">Oct 11, 2026</span><p>New: double tap the left button to stay on one team.</p></div>
+      <div class="beat"><span class="date">Within 6 hours</span><p>Every sportsMeter checks for it and installs it over Wi-Fi.</p></div>
+      <div class="beat"><span class="date">Every season</span><p><b>New schedules, new standings.</b> Nothing to renew.</p></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- BUILD -->
+<section class="sec sec-soft" id="build">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Build yours</p>
+      <h2>Make it yours.</h2>
+      <p>Stands are 3D-printed to order in Encinitas, California.</p>
+    </div>
+    <div class="builder reveal">
+      <div class="b-stage tile"><div class="device" id="buildDevice">
+  <img class="device-photo" src="../assets/finishes/black.webp" alt="sportsMeter preview" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/sports/screens/idle_football.webp"></div>
+</div></div>
+      <div class="b-panel">
+        <fieldset><legend>Stand <span id="finishName">Black</span></legend><div class="swatches" id="finishes"></div></fieldset>
+        <fieldset><legend>Power</legend><div class="opts" id="powers"></div><p class="hint" id="powerHint"></p></fieldset>
+        <fieldset><legend>Preview screen</legend><div class="opts opts-wrap" id="screens"></div></fieldset>
+        <div class="b-buy">
+          <p class="b-price" id="price">$119</p>
+          <a class="btn btn-lg" id="buyBtn" href="#" rel="noopener">Buy now</a>
+        </div>
+        <p class="fine" id="summary"></p>
+        <p class="fine">Includes the stand, a USB-C cable and a setup card. Checkout at encinitas3d.com.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM -->
+<section class="sec" id="teams">
+  <div class="wrap">
+    <div class="team-tile reveal">
+      <div class="team-copy">
+        <p class="eyebrow">Gifts</p>
+        <h2>One gift, any team.</h2>
+        <p>They pick their own team at setup, so you never have to guess. Ordering several for an office? Email us.</p>
+        
+        <a class="btn btn-light team-cta" href="mailto:info@encinitas3d.com?subject=sportsMeter%20custom%20order">Ask about a larger order</a>
+        
+      </div>
+      <div class="team-shot">
+        <div class="tile">
+          <div class="device" id="customDevice">
+  <img class="device-photo" src="../assets/finishes/red.webp" alt="" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/sports/screens/gameday_basketball.webp"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section class="sec sec-soft" id="setup">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Getting started</p>
+      <h2>Set up in a minute.</h2>
+    </div>
+    <ol class="steps reveal">
+      <li><span>1</span><b>Plug it in</b><p>Scan the code on the screen to join its Wi-Fi. The setup page opens.</p></li>
+      <li><span>2</span><b>Pick your Wi-Fi</b><p>Choose your home network and enter the password. It needs 2.4 GHz.</p></li>
+      <li><span>3</span><b>Add your teams</b><p>Choose a league, then a team. Add up to six, then Save.</p></li>
+      
+    </ol>
+    <p class="note reveal">No app, no account, no subscription. To change teams later, hold the middle button for 2 seconds. <a class="link" href="https://encinitas3d.com/sportsmeter/?utm_content=setup" data-utm>Setup guide</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions</h2></div>
+    <div class="faq reveal">
+      <details><summary>Which sports and leagues does it cover?</summary><p>Football, basketball, baseball, hockey and soccer: NFL, NBA, MLB, NHL, WNBA, MLS, NWSL, college football, men's and women's college basketball, the Premier League, Liga MX, LaLiga, Bundesliga, Serie A and Ligue 1. That is 1,785 teams; <a class="link" href="teams/">find yours</a>.</p></details>
+      <details><summary>How many teams can it follow?</summary><p>Up to six, from any mix of sports. They take turns on the screen, and a live game takes over until it ends.</p></details>
+      <details><summary>How fast do scores update?</summary><p>During a game it checks every 20 seconds. Scores usually trail the live action by under a minute; streams are often further behind than that.</p></details>
+      <details><summary>What does it show when there is no game?</summary><p>The record, place in the standings and the next game in your time zone. Between seasons the game card reads "No game scheduled" until the next one is on the calendar.</p></details>
+      <details><summary>Does it show my team's logo?</summary><p>Yes. Once it is online it fetches your team's logo and uses the team's colours; until a logo arrives it shows the team's initials on a block of its colour. The screens on this page show real teams with sample season numbers.</p></details>
+      <details><summary>Can I change teams later?</summary><p>Yes. Hold the middle button for 2 seconds and open the address it shows on a phone on the same Wi-Fi. Your Wi-Fi stays set up.</p></details>
+      <details><summary>Is there an app or a subscription?</summary><p>No. Setup is a web page on your phone, and there is nothing to renew. Updates install themselves over Wi-Fi.</p></details>
+      <details><summary>What Wi-Fi does it need?</summary><p>2.4 GHz Wi-Fi with a password. Guest or office networks that make you sign in on a web page will not work.</p></details>
+      <details><summary>What are the specs?</summary><p>2-inch 320 by 240 colour screen, ESP32, 2.4 GHz Wi-Fi, three buttons, USB-C power or a built-in battery.</p></details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="sec sec-soft" id="family">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">myDeskMeter</p><h2>Same device, other numbers.</h2></div>
+    <div class="cards cards-3 reveal">
+      
+      <a class="card" href="../codemeter/" style="--accent: #d9693f">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/orange.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/codemeter/screens/fw_2x_wk_5hwk.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">codeMeter</p>
+        <p class="card-text">How much of your AI coding limits you have used, and when they reset.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+      <a class="card" href="../price/" style="--accent: #4d7a00">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/gold.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/price/screens/btc_1h.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">priceMeter</p>
+        <p class="card-text">Live prices and candlestick charts for up to 25 stocks and crypto.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+      <a class="card" href="../social/" style="--accent: #0a64c2">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/red.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/social/screens/sm_youtube.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">socialMeter</p>
+        <p class="card-text">Your live follower, viewer or sales count from 20 platforms, with what today added.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap close-in reveal">
+    <h2>Always know the score.</h2>
+    <a class="btn btn-lg" href="#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../codemeter/">codeMeter</a><a href="../price/">priceMeter</a><a href="../sports/">sportsMeter</a><a href="../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">sportsMeter is an independent product made by Encinitas 3D. It is not affiliated with, endorsed by, sponsored by or licensed by any league, team, conference or broadcaster. League and team names and logos are shown only to describe the scores and schedules the device can display, and remain the property of their owners. Season numbers in the screens on this page are samples.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "product", "slug": "sports", "name": "sportsMeter", "glance": {"eyebrow": "How it works", "h2": "Know where they stand.", "soft": "And when they play next.", "screen": "live", "facts": [{"key": "season", "t": "The season so far", "d": "The record and place in the standings, under your team's logo and in its colours.", "boxes": [[2, 15, 96, 40]]}, {"key": "next", "t": "The next game", "d": "Who and when, in your time zone. On game day the card lights up.", "boxes": [[2, 57, 96, 27]]}, {"key": "numbers", "t": "The numbers behind it", "d": "Streak and points for and against, taking turns with home and away records.", "boxes": [[2, 85, 96, 13]]}]}, "modes": [{"key": "one", "label": "One team", "screen": "idle_football", "h": "One team, all season.", "p": "Record, standing and the next game in your time zone. On game day the card lights up in your team's colours.", "for": "Any of 1,785 teams in 16 leagues"}, {"key": "six", "label": "Up to six", "screen": "gameday_basketball", "h": "Up to six teams, any mix.", "p": "They take turns on the screen every 12 seconds. When one plays, its live game takes over until it ends.", "for": "Football, basketball, baseball, hockey and soccer, pro or college"}, {"key": "live", "label": "Live games", "screen": "live_baseball", "h": "The live score, with the details.", "p": "Score, clock and period. Football adds down and distance; baseball adds the count, outs and runners.", "for": "Every team it follows"}, {"key": "hold", "label": "Stay on one", "screen": "idle_hockey_hold", "h": "Park it on one team.", "p": "Double tap the left button and it stays on the team you pick, even when another one plays. Double tap again to rotate.", "for": "Any setup with two or more teams"}], "builder": {"screens": [{"key": "football", "label": "Football", "screen": "idle_football"}, {"key": "basketball", "label": "Basketball", "screen": "gameday_basketball"}, {"key": "baseball", "label": "Baseball", "screen": "live_baseball"}, {"key": "hockey", "label": "Hockey", "screen": "idle_hockey"}, {"key": "soccer", "label": "Soccer", "screen": "final_soccer"}, {"key": "college", "label": "College", "screen": "gameday_college"}], "store": {"url": "https://encinitas3d.com/product/live-sports-scoreboard-desk-display/", "params": {"attribute_pa_finish": "{finish}", "attribute_pa_battery": "{power}"}, "power_values": {"usb": "usb-c", "standard": "standard-battery", "jumbo": "all-day-battery"}}, "prices": {"black-usb": 119, "black-standard": 119, "black-jumbo": 139, "blue-usb": 129, "blue-standard": 129, "blue-jumbo": 149, "glow-standard": 129, "gold-usb": 129, "gold-standard": 129, "orange-usb": 129, "rainbow-usb": 129, "rainbow-standard": 129, "red-usb": 129, "red-standard": 129, "red-jumbo": 149, "wood-usb": 129, "wood-standard": 129, "wood-jumbo": 149}}, "logo_preview": false};</script>
+<script src="../assets/shot.js"></script>
+<script src="../app.js"></script>
+<script src="../products/sports/screen.js"></script>
+<script src="../products/sports/tool.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>codeMeter privacy: where your sign-in lives | codeMeter</title>
+<meta name="description" content="codeMeter stores your Claude token or ChatGPT sign-in on the device only. What it connects to, what we never see, and how to revoke and wipe it.">
+<link rel="canonical" href="https://mydeskmeter.com/codemeter/privacy/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="codeMeter privacy: where your sign-in lives | codeMeter">
+<meta property="og:description" content="codeMeter stores your Claude token or ChatGPT sign-in on the device only. What it connects to, what we never see, and how to revoke and wipe it.">
+<meta property="og:url" content="https://mydeskmeter.com/codemeter/privacy/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/codemeter.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need an account with you?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no Encinitas 3D account and no server of ours."}}, {"@type": "Question", "name": "Is codeMeter an official Anthropic or OpenAI product?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an independent product, not made by, endorsed by, or affiliated with Anthropic or OpenAI. It reads usage numbers your own account can see."}}, {"@type": "Question", "name": "What if my Wi-Fi blocks ip-api.com?", "acceptedAnswer": {"@type": "Answer", "text": "The time zone lookup can fail and the clock may show the wrong zone. Allow ip-api.com in your network filter."}}]}</script>
+
+</head>
+<body style="--accent: #d9693f; --accent-ink: #d9693f;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="../../codemeter/">codeMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="../../codemeter/">codeMeter</a><a href="../../codemeter/plans/">Plans</a><a href="../../codemeter/guides/">Guides</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="../../codemeter/#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="../../">myDeskMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/">codeMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/guides/">Guides</a> <span aria-hidden="true">/</span> <span>Your sign-in stays on the device.</span></nav>
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Privacy and security</p>
+      <h1 class="reveal">Your sign-in stays on the device.</h1>
+      <p class="lede reveal">No account with us, no server of ours in between. Here is exactly what it talks to.</p>
+      <div class="cta reveal">
+        <a class="btn" href="../../codemeter/#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><link rel="stylesheet" href="../../seo/codemeter/landing.css"><div class="device"><img class="device-photo" src="../../assets/finishes/black.webp" alt="codeMeter on a black stand" width="1000" height="750" fetchpriority="high"><div class="screen"><img alt="" src="../../products/codemeter/screens/fw_weekly_only.webp"></div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="connects">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Connections</p><h2>What it connects to.</h2></div>
+    <div class="reveal"><div class="cm-tbl-wrap"><table class="cm-tbl"><thead><tr><th scope="col">Where</th><th scope="col">Why</th></tr></thead><tbody><tr><td>Anthropic</td><td>Your Claude usage, over TLS</td></tr><tr><td>OpenAI</td><td>Your Codex usage and sign-in, over TLS</td></tr><tr><td>GitHub</td><td>Firmware updates</td></tr><tr><td>Internet time servers</td><td>The clock</td></tr><tr><td>ip-api.com</td><td>Your time zone</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+<section class="sec sec-soft" id="never">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">What we never see</p><h2>Nothing passes through us.</h2></div>
+    <div class="reveal"><ul class="cm-list"><li><b>Claude token</b>You paste it over the device's own local Wi-Fi. The pairing page builds its QR in your browser, so nothing is uploaded.</li><li><b>ChatGPT password</b>You sign in on OpenAI's own page on your phone. The device never sees your password.</li><li><b>Usage numbers</b>They go from Anthropic or OpenAI straight to the device.</li></ul></div>
+  </div>
+</section>
+
+<section class="sec" id="lost">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Lost or sold</p><h2>Revoke, then wipe.</h2></div>
+    <div class="reveal"><ol class="steps"><li><span>1</span><b>Revoke</b><p>Claude: revoke the device from your Claude account settings. Codex: sign out from ChatGPT's security settings, for example Log out of all devices.</p></li><li><span>2</span><b>Wipe</b><p>Hold C about 7 seconds (a red RESET screen appears at 5 seconds, keep holding). This clears Wi-Fi, tokens and names.</p></li><li><span>3</span><b>Set up again</b><p>It boots into setup, ready for a new owner.</p></li></ol></div>
+  </div>
+</section>
+
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions.</h2></div>
+    <div class="faq reveal"><details><summary>Do I need an account with you?</summary><p>No. There is no Encinitas 3D account and no server of ours.</p></details><details><summary>Is codeMeter an official Anthropic or OpenAI product?</summary><p>No. It is an independent product, not made by, endorsed by, or affiliated with Anthropic or OpenAI. It reads usage numbers your own account can see.</p></details><details><summary>What if my Wi-Fi blocks ip-api.com?</summary><p>The time zone lookup can fail and the clock may show the wrong zone. Allow ip-api.com in your network filter.</p></details></div>
+  </div>
+</section>
+
+
+<section class="sec sec-soft" id="related">
+  <div class="wrap">
+    <div class="head reveal"><h2>Keep reading</h2></div>
+    <ul class="related reveal"><li><a href="../../codemeter/set-up-claude/">Set up with Claude</a></li><li><a href="../../codemeter/set-up-codex/">Set up with Codex</a></li><li><a href="../../codemeter/troubleshooting/">Troubleshooting</a></li><li><a href="../../codemeter/team-desk-rollout/">Team desks</a></li><li><a href="../../codemeter/guides/">All guides</a></li></ul>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="reveal">Stop guessing.</h2>
+    <a class="btn btn-lg reveal" href="../../codemeter/#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="../../codemeter/#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../../codemeter/">codeMeter</a><a href="../../price/">priceMeter</a><a href="../../sports/">sportsMeter</a><a href="../../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">codeMeter is an independent product. Claude and Anthropic are trademarks of Anthropic; OpenAI, ChatGPT and Codex are trademarks of OpenAI; Datadog is a trademark of Datadog, Inc. Not made by, endorsed by, or affiliated with any of them.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "landing", "slug": "codemeter", "name": "codeMeter", "root": "../../"};</script>
+<script src="../../assets/shot.js"></script>
+<script src="../../app.js"></script>
+
+<script src="../../seo/codemeter/landing.js"></script>
+
+</body>
+</html>

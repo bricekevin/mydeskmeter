@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>priceMeter: a live stock and crypto price display for your desk</title>
+<meta name="description" content="priceMeter is a small Wi-Fi desk display with live prices and candlestick charts for up to 25 stocks and crypto pairs, in any mix. No app, no account, no subscription. From $119.">
+<link rel="canonical" href="https://mydeskmeter.com/price/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="priceMeter: your stocks and crypto, live on your desk">
+<meta property="og:description" content="priceMeter is a small Wi-Fi desk display with live prices and candlestick charts for up to 25 stocks and crypto pairs, in any mix. No app, no account, no subscription. From $119.">
+<meta property="og:url" content="https://mydeskmeter.com/price/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/price.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "priceMeter", "description": "priceMeter is a small Wi-Fi desk display with live prices and candlestick charts for up to 25 stocks and crypto pairs, in any mix. No app, no account, no subscription. From $119.", "brand": {"@type": "Brand", "name": "Encinitas 3D"}, "image": ["https://mydeskmeter.com/assets/og/price.jpg"], "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "119", "highPrice": "149", "offerCount": "18", "availability": "https://schema.org/InStock", "url": "https://encinitas3d.com/product/crypto-price-display/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What can it track?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 25 in any mix: crypto pairs listed on Binance.US, like BTCUSDT, and US stocks and ETFs, like AAPL or SPY. Our search tool checks a ticker before you add it."}}, {"@type": "Question", "name": "Which crypto pairs work?", "acceptedAnswer": {"@type": "Answer", "text": "Any pair Binance.US lists, typed as one word: BTCUSDT, ETHUSDT, DOGEUSDT and hundreds more. The checker above searches the live list."}}, {"@type": "Question", "name": "How often does it update?", "acceptedAnswer": {"@type": "Answer", "text": "Crypto updates live from Binance.US. Stock prices come from Yahoo Finance every 15 seconds, and the chart refreshes every 30 seconds."}}, {"@type": "Question", "name": "What happens when the market is closed?", "acceptedAnswer": {"@type": "Answer", "text": "Stocks show the last price and chart until trading opens again. Crypto trades around the clock."}}, {"@type": "Question", "name": "What does the line at the top mean?", "acceptedAnswer": {"@type": "Answer", "text": "It is how far the price moved across the whole chart, in price and percent, and how long that chart covers. On one-hour candles it reads :24h."}}, {"@type": "Question", "name": "Do I need an account, API key or subscription?", "acceptedAnswer": {"@type": "Answer", "text": "No. It reads free public price feeds, so there is nothing to sign up for. Updates are free and install themselves over Wi-Fi; if one fails to start, it goes back to the previous version."}}, {"@type": "Question", "name": "What do the buttons do?", "acceptedAnswer": {"@type": "Answer", "text": "Left shows the next ticker. Middle sets the brightness, four levels. Right changes the candle size, from 1 minute to 1 month."}}, {"@type": "Question", "name": "How do I change my tickers?", "acceptedAnswer": {"@type": "Answer", "text": "Hold the middle button while it starts up. The setup page opens again for Wi-Fi and tickers."}}, {"@type": "Question", "name": "Does it work outside the US?", "acceptedAnswer": {"@type": "Answer", "text": "Usually. The clock finds your time zone, and dates can show in English, German or Spanish. Crypto comes from Binance.US, which some countries and networks block, so try the test links on our setup page first."}}, {"@type": "Question", "name": "Can it run on battery?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose a Standard or All Day Battery to move it around, or USB-C only for a desk. Hold the middle button to start a 45-minute sleep timer."}}, {"@type": "Question", "name": "What are the specs?", "acceptedAnswer": {"@type": "Answer", "text": "2-inch 320 by 240 colour screen, ESP32, 2.4 GHz Wi-Fi, three buttons, USB-C power or a built-in battery."}}]}</script>
+
+</head>
+<body style="--accent: #4d7a00; --accent-ink: #4d7a00;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="#top">priceMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#glance">How it works</a><a href="#modes">Setups</a><a href="#teams">Gifts</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">For stocks and crypto</p>
+      <h1 class="reveal">Your stocks and crypto,<br>on your desk.</h1>
+      <p class="lede reveal">A small display with the live price and a candlestick chart. Up to 25 tickers. No app, no tabs.</p>
+      <div class="cta reveal">
+        <a class="btn" href="#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><div class="device" id="heroDevice">
+  <img class="device-photo" src="../assets/finishes/gold.webp" alt="priceMeter on a gold stand showing the live Bitcoin price and a one-hour candlestick chart" width="1000" height="750" fetchpriority="high">
+  <div class="screen"><canvas class="meter-canvas" width="640" height="480" data-meter-live aria-label="priceMeter on a gold stand showing the live Bitcoin price and a one-hour candlestick chart"></canvas></div>
+  
+</div></div>
+  </div>
+</section>
+
+
+<!-- IN USE: a person using it; the screen is the real firmware screen composited on -->
+<section class="sec" id="use">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">In use</p>
+      <h2>Your morning check, done.</h2>
+      <p>Coffee in one hand, the market on your desk. No app to open.</p>
+    </div>
+    <div class="use reveal">
+      <video autoplay muted loop playsinline preload="metadata" poster="../products/price/media/use-poster.jpg" aria-label="priceMeter in use">
+        <source src="../products/price/media/use.mp4" type="video/mp4">
+      </video>
+      <script>if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll("#use video").forEach(function (v) { v.pause(); v.removeAttribute("autoplay"); });</script>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="glance">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>Read the market at a glance.<br><span class="soft">Without opening an app.</span></h2>
+    </div>
+    <div class="glance reveal">
+      <div class="panel-dark">
+        <div class="flat" data-flat id="flat">
+          <div class="screen"><canvas class="meter-canvas" width="640" height="480" data-meter-live aria-label="priceMeter screen"></canvas></div>
+          
+          <svg class="dim" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="holes"><rect width="100" height="100" fill="#fff"/><g id="holeRects" fill="#000"></g></mask></defs><rect width="100" height="100" fill="#000" mask="url(#holes)"/></svg>
+        </div>
+      </div>
+      <ul class="facts">
+        <li data-i="0"><b>The price now</b><span>Big and live. Green while the current candle is up, red when it is down. A white tick marks it on the last candle.</span></li>
+        <li data-i="1"><b>How far it moved</b><span>The change in price and percent across the chart, and the chart's high and low.</span></li>
+        <li data-i="2"><b>The chart</b><span>24 candles, with a thin line for trading volume behind them. The letters at the bottom right are the candle size.</span></li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SETUPS -->
+<section class="sec sec-soft" id="modes">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">What it shows</p>
+      <h2>One device. Any mix you like.</h2>
+      <p>Pick your tickers on your phone during setup.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="What it shows">
+      <button role="tab" aria-selected="true" data-mode="crypto">Crypto</button>
+      <button role="tab" aria-selected="false" data-mode="stocks">Stocks</button>
+      <button role="tab" aria-selected="false" data-mode="mix">Up to 25</button>
+      <button role="tab" aria-selected="false" data-mode="range">Chart range</button>
+      
+    </div>
+    <div class="mode reveal">
+      <div class="tile"><div class="device" id="modeDevice">
+  <img class="device-photo" src="../assets/finishes/black.webp" alt="" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/price/screens/btc_1h.webp"></div>
+</div></div>
+      <div class="mode-copy" id="modeCopy" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BROWSE: links into this meter's SEO landing pages (content.json browse) -->
+<section class="sec sec-tight" id="browse">
+  <div class="wrap">
+    <p class="browse reveal"><span>See it with your ticker:</span> <a href="stocks/">S&P 500 stocks</a> <span aria-hidden="true">&middot;</span> <a href="etfs/">ETFs</a> <span aria-hidden="true">&middot;</span> <a href="crypto/">Crypto</a></p>
+  </div>
+</section>
+
+
+
+<!-- LOOKUP TOOL (products/<slug>/tool.js mounts into #meterTool) -->
+<section class="sec" id="tool">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Check a ticker</p>
+      <h2>Is yours supported?</h2>
+      <p>Search a coin or a US stock. See it on the screen, and exactly what to type during setup.</p>
+    </div>
+    <div class="tool reveal" id="meterTool"></div>
+  </div>
+</section>
+
+
+<!-- UPDATES -->
+<section class="sec" id="updates">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Updates</p>
+      <h2>It keeps itself up to date.</h2>
+      <p>When we improve priceMeter, it installs the new version over Wi-Fi by itself.</p>
+    </div>
+    <div class="story reveal">
+      <div class="beat"><span class="date">Sep 25, 2026</span><p>Wi-Fi reconnects by itself after a power cut or a router restart.</p></div>
+      <div class="beat"><span class="date">Aug 28, 2026</span><p>Time zones east of London read correctly. Leave it blank and it finds yours.</p></div>
+      <div class="beat"><span class="date">Since July</span><p><b>4 free updates.</b> No subscription.</p></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- BUILD -->
+<section class="sec sec-soft" id="build">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Build yours</p>
+      <h2>Make it yours.</h2>
+      <p>Stands are 3D-printed to order in Encinitas, California.</p>
+    </div>
+    <div class="builder reveal">
+      <div class="b-stage tile"><div class="device" id="buildDevice">
+  <img class="device-photo" src="../assets/finishes/black.webp" alt="priceMeter preview" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/price/screens/btc_1h.webp"></div>
+</div></div>
+      <div class="b-panel">
+        <fieldset><legend>Stand <span id="finishName">Black</span></legend><div class="swatches" id="finishes"></div></fieldset>
+        <fieldset><legend>Power</legend><div class="opts" id="powers"></div><p class="hint" id="powerHint"></p></fieldset>
+        <fieldset><legend>Preview screen</legend><div class="opts opts-wrap" id="screens"></div></fieldset>
+        <div class="b-buy">
+          <p class="b-price" id="price">$119</p>
+          <a class="btn btn-lg" id="buyBtn" href="#" rel="noopener">Buy now</a>
+        </div>
+        <p class="fine" id="summary"></p>
+        <p class="fine">Includes the display on its stand and a USB-C cable. Checkout at encinitas3d.com.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM -->
+<section class="sec" id="teams">
+  <div class="wrap">
+    <div class="team-tile reveal">
+      <div class="team-copy">
+        <p class="eyebrow">Gifts</p>
+        <h2>A gift for anyone who checks the markets.</h2>
+        <p>Live prices on their desk, set up in minutes with the tickers they follow. Free shipping and 30-day returns.</p>
+        
+        <a class="btn btn-light team-cta" href="mailto:info@encinitas3d.com?subject=priceMeter%20custom%20order">Ask about a custom order</a>
+        
+      </div>
+      <div class="team-shot">
+        <div class="tile">
+          <div class="device" id="customDevice">
+  <img class="device-photo" src="../assets/finishes/gold.webp" alt="" width="1000" height="750" loading="lazy">
+  <div class="screen"><img alt="" src="../products/price/screens/btc_1h.webp"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section class="sec sec-soft" id="setup">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Getting started</p>
+      <h2>Set up in five minutes.</h2>
+    </div>
+    <ol class="steps reveal">
+      <li><span>1</span><b>Plug it in</b><p>Join the SETUP PRICE TICKER Wi-Fi from your phone. The setup page opens.</p></li>
+      <li><span>2</span><b>Add your tickers</b><p>Pick your home Wi-Fi, then up to 25 tickers: crypto as a pair like BTCUSDT, stocks as Stock:tsla. Give each a short name.</p></li>
+      <li><span>3</span><b>Watch it go</b><p>It joins your Wi-Fi and draws the first chart. Press the left button for the next one.</p></li>
+      
+    </ol>
+    <p class="note reveal">No account, no app and no API key. Your settings stay on the device. <a class="link" href="https://encinitas3d.com/supported-stock-crypto/?utm_content=setup" data-utm>Setup guide</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions</h2></div>
+    <div class="faq reveal">
+      <details><summary>What can it track?</summary><p>Up to 25 in any mix: crypto pairs listed on Binance.US, like BTCUSDT, and US stocks and ETFs, like AAPL or SPY. Our search tool checks a ticker before you add it.</p></details>
+      <details><summary>Which crypto pairs work?</summary><p>Any pair Binance.US lists, typed as one word: BTCUSDT, ETHUSDT, DOGEUSDT and hundreds more. The checker above searches the live list.</p></details>
+      <details><summary>How often does it update?</summary><p>Crypto updates live from Binance.US. Stock prices come from Yahoo Finance every 15 seconds, and the chart refreshes every 30 seconds.</p></details>
+      <details><summary>What happens when the market is closed?</summary><p>Stocks show the last price and chart until trading opens again. Crypto trades around the clock.</p></details>
+      <details><summary>What does the line at the top mean?</summary><p>It is how far the price moved across the whole chart, in price and percent, and how long that chart covers. On one-hour candles it reads :24h.</p></details>
+      <details><summary>Do I need an account, API key or subscription?</summary><p>No. It reads free public price feeds, so there is nothing to sign up for. Updates are free and install themselves over Wi-Fi; if one fails to start, it goes back to the previous version.</p></details>
+      <details><summary>What do the buttons do?</summary><p>Left shows the next ticker. Middle sets the brightness, four levels. Right changes the candle size, from 1 minute to 1 month.</p></details>
+      <details><summary>How do I change my tickers?</summary><p>Hold the middle button while it starts up. The setup page opens again for Wi-Fi and tickers.</p></details>
+      <details><summary>Does it work outside the US?</summary><p>Usually. The clock finds your time zone, and dates can show in English, German or Spanish. Crypto comes from Binance.US, which some countries and networks block, so try the test links on our setup page first.</p></details>
+      <details><summary>Can it run on battery?</summary><p>Yes. Choose a Standard or All Day Battery to move it around, or USB-C only for a desk. Hold the middle button to start a 45-minute sleep timer.</p></details>
+      <details><summary>What are the specs?</summary><p>2-inch 320 by 240 colour screen, ESP32, 2.4 GHz Wi-Fi, three buttons, USB-C power or a built-in battery.</p></details>
+      
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="sec sec-soft" id="family">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">myDeskMeter</p><h2>Same device, other numbers.</h2></div>
+    <div class="cards cards-3 reveal">
+      
+      <a class="card" href="../codemeter/" style="--accent: #d9693f">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/orange.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/codemeter/screens/fw_2x_wk_5hwk.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">codeMeter</p>
+        <p class="card-text">How much of your AI coding limits you have used, and when they reset.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+      <a class="card" href="../sports/" style="--accent: #178a56">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/wood.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/sports/screens/live_football.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">sportsMeter</p>
+        <p class="card-text">Your teams' record, next game and live score, up to six at once.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+      <a class="card" href="../social/" style="--accent: #0a64c2">
+        <div class="tile">
+          <div class="device">
+            <img class="device-photo" src="../assets/finishes/red.webp" alt="" width="1000" height="750" loading="lazy">
+            <div class="screen"><img alt="" src="../products/social/screens/sm_youtube.webp"></div>
+          </div>
+        </div>
+        <p class="card-name">socialMeter</p>
+        <p class="card-text">Your live follower, viewer or sales count from 20 platforms, with what today added.</p>
+        <p class="card-more">From $119</p>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap close-in reveal">
+    <h2>Stop refreshing.</h2>
+    <a class="btn btn-lg" href="#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../codemeter/">codeMeter</a><a href="../price/">priceMeter</a><a href="../sports/">sportsMeter</a><a href="../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">priceMeter is an independent product. Binance.US and Yahoo Finance are trademarks of their respective owners, as are the stock tickers and coin names shown. Prices are for information only. Not made by, endorsed by, or affiliated with any of them.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "product", "slug": "price", "name": "priceMeter", "glance": {"eyebrow": "How it works", "h2": "Read the market at a glance.", "soft": "Without opening an app.", "screen": "live", "facts": [{"key": "price", "t": "The price now", "d": "Big and live. Green while the current candle is up, red when it is down. A white tick marks it on the last candle.", "boxes": [[0, 84, 62, 16]]}, {"key": "move", "t": "How far it moved", "d": "The change in price and percent across the chart, and the chart's high and low.", "boxes": [[33, 9, 60, 7], [62, 85, 30, 15]]}, {"key": "chart", "t": "The chart", "d": "24 candles, with a thin line for trading volume behind them. The letters at the bottom right are the candle size.", "boxes": [[0, 16, 100, 68], [93, 85, 6, 15]]}]}, "modes": [{"key": "crypto", "label": "Crypto", "screen": "btc_1h", "h": "Crypto, live.", "p": "Prices stream straight from Binance.US, so the last candle grows as trades happen. Any pair it lists, like BTCUSDT.", "for": "Bitcoin, Ethereum, Dogecoin and other Binance.US pairs"}, {"key": "stocks", "label": "Stocks", "screen": "tsla_1d", "h": "US stocks and ETFs.", "p": "Type the ticker after Stock:, like Stock:aapl. The price refreshes every 15 seconds while the market is open.", "for": "US-listed stocks and ETFs, like AAPL, TSLA or SPY"}, {"key": "mix", "label": "Up to 25", "screen": "eth_1h", "h": "Up to 25, in any mix.", "p": "Each gets a short name of up to 8 letters. Press left for the next one, or left and right together to cycle on its own.", "for": "Any mix of stocks and crypto"}, {"key": "range", "label": "Chart range", "screen": "spy_1w", "h": "From 1 minute to 1 month.", "p": "Press the right button, then left or right: 1m, 3m, 5m, 15m, 1h, 4h, 1d, 1w or 1M candles. It remembers your pick.", "for": "Day traders and long-term holders"}], "builder": {"screens": [{"key": "btc", "label": "Bitcoin", "screen": "btc_1h"}, {"key": "eth", "label": "ETH", "screen": "eth_1h"}, {"key": "tsla", "label": "TSLA", "screen": "tsla_1d"}, {"key": "spy", "label": "SPY", "screen": "spy_1w"}], "store": {"url": "https://encinitas3d.com/product/crypto-price-display/", "params": {"attribute_version": "{power}", "attribute_designs": "{finish}"}, "power_values": {"usb": "USB-C", "standard": "Standard Battery", "jumbo": "All Day Battery"}, "finish_values": {"black": "Black", "red": "Red", "gold": "Gold", "wood": "Wood", "rainbow": "Rainbow", "glow": "Glow"}}, "prices": {"black-usb": 119, "black-standard": 119, "black-jumbo": 139, "red-usb": 129, "red-standard": 129, "red-jumbo": 149, "gold-usb": 129, "gold-standard": 129, "gold-jumbo": 149, "wood-usb": 129, "wood-standard": 129, "wood-jumbo": 149, "rainbow-usb": 129, "rainbow-standard": 129, "rainbow-jumbo": 149, "glow-usb": 129, "glow-standard": 129, "glow-jumbo": 149}}, "logo_preview": false};</script>
+<script src="../assets/shot.js"></script>
+<script src="../app.js"></script>
+<script src="../products/price/screen.js"></script>
+<script src="../products/price/tool.js"></script>
+
+
+</body>
+</html>

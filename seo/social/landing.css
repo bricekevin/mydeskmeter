@@ -1,0 +1,55 @@
+/* socialMeter SEO landing pages (seo/social.py). Shared tokens from styles.css. */
+.sm-cap { font-size: 14px; color: var(--ink-3); text-align: center; margin: 12px 0 0; }
+.sm-rows { display: grid; gap: 0; margin: 0; max-width: 860px; }
+.sm-rows > div { display: grid; grid-template-columns: minmax(150px, 220px) 1fr; gap: 6px 28px; padding: 18px 0; border-top: 1px solid var(--line); }
+.sm-rows dt { font-weight: 700; font-size: 15px; letter-spacing: .04em; color: var(--accent-ink); }
+.sm-rows dd { margin: 0; color: var(--ink-2); }
+.sm-note { color: var(--ink-2); margin: 22px 0 0; max-width: 60ch; }
+.sm-note .link + .link { margin-left: 18px; }
+.sm-need { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin: 0 0 30px; max-width: 860px; }
+.sm-need p { margin: 0; color: var(--ink-2); flex: 1 1 320px; }
+.sm-badge { display: inline-block; font: 600 13px var(--font); padding: 6px 12px; border-radius: 999px; background: #e3f2e6; color: #1f6b33; white-space: nowrap; }
+.sm-badge.key { background: #fff; color: var(--ink-2); box-shadow: inset 0 0 0 1.5px var(--line); }
+.sm-steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 22px; max-width: 860px; }
+.sm-steps > li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: 4px 18px; }
+.sm-steps > li::before { content: counter(s); grid-row: span 2; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 600; display: grid; place-items: center; }
+.sm-steps > li > b { font-size: 20px; letter-spacing: -.02em; padding-top: 4px; }
+.sm-steps > li > div { color: var(--ink-2); }
+.sm-steps ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; }
+.sm-steps code { white-space: normal; word-break: break-all; }
+.sm-ex { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.sm-ex span { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); }
+.sm-tip { display: block; margin-top: 10px; padding: 10px 14px; border-radius: 12px; background: var(--bg-soft); font-size: 16px; }
+.sec-soft .sm-tip { background: var(--bg); }
+.sm-minis, .sm-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 18px 14px; }
+.sm-mini { display: block; text-decoration: none; color: inherit; }
+.sm-mini canvas, .sm-cards canvas { display: block; width: calc(100% - 12px); height: auto; aspect-ratio: 4 / 3; margin: 6px 6px 12px; border-radius: 8px; background: #0a0a0c; box-shadow: 0 0 0 6px var(--dark); image-rendering: pixelated; transition: transform .3s var(--ease); }
+a.sm-mini:hover canvas, a.sm-mini:focus-visible canvas, .sm-cards a:hover canvas { transform: translateY(-3px); }
+.sm-mini .nm { display: block; font-weight: 600; font-size: 16px; line-height: 1.25; }
+.sm-mini .mt { display: block; font-size: 14px; color: var(--ink-3); margin-top: 2px; }
+.sm-group + .sm-group { margin-top: 56px; }
+.sm-group h3 { font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.03em; margin: 0; }
+.sm-group > p { color: var(--ink-2); margin: 4px 0 20px; }
+.sm-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.sm-table { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 560px; }
+.sm-table th { text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 600; padding: 0 12px 10px 0; }
+.sm-table td { padding: 12px 12px 12px 0; border-top: 1px solid var(--line); color: var(--ink-2); }
+.sm-table td:first-child a { color: var(--ink); font-weight: 600; }
+.sm-aud { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sm-aud a { display: grid; gap: 4px; padding: 18px 20px; border-radius: var(--r-in); background: #fff; text-decoration: none; color: var(--ink); height: 100%; box-sizing: border-box; }
+.sm-aud a:hover { box-shadow: inset 0 0 0 1.5px var(--ink); }
+.sm-aud span { font-size: 15px; color: var(--ink-3); }
+.sm-pick { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin: 0 0 32px; }
+.sm-pick b { color: var(--ink); }
+.sm-cards a { display: grid; gap: 4px; justify-items: start; text-decoration: none; color: var(--ink); }
+.sm-cards b { font-size: 18px; }
+.sm-cards span { font-size: 15px; color: var(--ink-2); }
+.sm-cards .sm-badge { margin-top: 6px; font-size: 12px; }
+.sm-why { margin: 0; padding-left: 22px; display: grid; gap: 12px; max-width: 62ch; color: var(--ink-2); }
+@media (max-width: 600px) {
+  .sm-rows > div { grid-template-columns: 1fr; padding: 14px 0; }
+  .sm-minis, .sm-cards { grid-template-columns: 1fr 1fr; gap: 14px 10px; }
+  .sm-mini canvas, .sm-cards canvas { box-shadow: 0 0 0 4px var(--dark); margin: 4px 4px 10px; width: calc(100% - 8px); border-radius: 6px; }
+  .sm-mini .nm { font-size: 15px; } .sm-mini .mt { font-size: 13px; }
+  .sm-steps > li > b { font-size: 18px; }
+}

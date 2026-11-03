@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>codeMeter troubleshooting: login expired, Wi-Fi | codeMeter</title>
+<meta name="description" content="Fix common codeMeter messages: Claude login expired, Codex login expired, token rejected, sign-in code expired, Wi-Fi that will not join, and resets.">
+<link rel="canonical" href="https://mydeskmeter.com/codemeter/troubleshooting/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="codeMeter troubleshooting: login expired, Wi-Fi | codeMeter">
+<meta property="og:description" content="Fix common codeMeter messages: Claude login expired, Codex login expired, token rejected, sign-in code expired, Wi-Fi that will not join, and resets.">
+<meta property="og:url" content="https://mydeskmeter.com/codemeter/troubleshooting/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/codemeter.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "It will not join my Wi-Fi.", "acceptedAnswer": {"@type": "Answer", "text": "It needs 2.4 GHz with a WPA2 password. It does not join 5 GHz-only or WPA3-only networks. Most home routers broadcast a compatible 2.4 GHz network."}}, {"@type": "Question", "name": "The setup page does not pop up on my phone.", "acceptedAnswer": {"@type": "Answer", "text": "Open http://192.168.4.1 in your browser while joined to the codeMeter Wi-Fi."}}, {"@type": "Question", "name": "The clock shows the wrong time.", "acceptedAnswer": {"@type": "Answer", "text": "The time zone comes from ip-api.com. If a network filter such as an ad blocker blocks it, allow ip-api.com."}}, {"@type": "Question", "name": "How do I switch from Claude to Codex?", "acceptedAnswer": {"@type": "Answer", "text": "Hold C about 7 seconds to factory reset, then set it up again and pick OpenAI Codex. No reflashing."}}]}</script>
+
+</head>
+<body style="--accent: #d9693f; --accent-ink: #d9693f;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="../../codemeter/">codeMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="../../codemeter/">codeMeter</a><a href="../../codemeter/plans/">Plans</a><a href="../../codemeter/guides/">Guides</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="../../codemeter/#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="../../">myDeskMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/">codeMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/guides/">Guides</a> <span aria-hidden="true">/</span> <span>Troubleshooting.</span></nav>
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Troubleshooting</p>
+      <h1 class="reveal">Troubleshooting.</h1>
+      <p class="lede reveal">What each message means and which button to hold.</p>
+      <div class="cta reveal">
+        <a class="btn" href="../../codemeter/#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><link rel="stylesheet" href="../../seo/codemeter/landing.css"><div class="device"><img class="device-photo" src="../../assets/finishes/black.webp" alt="codeMeter showing Action needed: Claude login expired" width="1000" height="750" fetchpriority="high"><div class="screen"><img alt="" src="../../seo/codemeter/screens/reauth.webp"></div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="msgs">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">On the screen</p><h2>Messages and fixes.</h2></div>
+    <div class="reveal"><div class="cm-tbl-wrap"><table class="cm-tbl"><thead><tr><th scope="col">It says</th><th scope="col">Do this</th></tr></thead><tbody><tr><td>Claude login expired</td><td>Hold B about 7 seconds (orange screen at 5 seconds, keep holding) and paste a fresh token from <code>claude setup-token</code>. Wi-Fi and names are kept.</td></tr><tr><td>Token rejected (one account)</td><td>Only that card stops. Hold B about 7 seconds and paste fresh tokens; a two-account device asks for both.</td></tr><tr><td>Codex login expired</td><td>Hold B about 7 seconds and sign in again on the device. Wi-Fi is kept.</td></tr><tr><td>Sign-in code expired</td><td>Codes last 15 minutes. Press B for a new one.</td></tr><tr><td>Claude + Codex missing from setup</td><td>Leave it plugged in on Wi-Fi for a while so it can update, then try again.</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+<section class="sec sec-soft" id="screens">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Screens</p><h2>What they look like.</h2></div>
+    <div class="reveal"><div class="cm-figs"><figure class="cm-fig"><div class="cm-frame"><img loading="lazy" width="640" height="480" src="../../seo/codemeter/screens/reauth.webp" alt="Claude login expired screen"></div><figcaption><b>Claude login expired</b>Hold B to log in again.</figcaption></figure><figure class="cm-fig"><div class="cm-frame"><img loading="lazy" width="640" height="480" src="../../seo/codemeter/screens/codex_reauth.webp" alt="Codex login expired screen"></div><figcaption><b>Codex login expired</b>Hold B to log in again.</figcaption></figure><figure class="cm-fig"><div class="cm-frame"><img loading="lazy" width="640" height="480" src="../../seo/codemeter/screens/codex_login_expired.webp" alt="Sign-in code expired screen"></div><figcaption><b>Sign-in code expired</b>Press B for a new code.</figcaption></figure></div></div>
+  </div>
+</section>
+
+<section class="sec" id="buttons">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Buttons</p><h2>A, B and C.</h2></div>
+    <div class="reveal"><ul class="cm-list"><li><b>Hold A</b>The Status screen: firmware version, Wi-Fi and why the last check failed, if it did.</li><li><b>Hold B about 7 seconds</b>Sign in again. On Claude and 2 Claude accounts it reopens the setup page; on Codex and Claude + Codex it signs in to ChatGPT again.</li><li><b>Hold C about 7 seconds</b>Factory reset. Clears Wi-Fi, tokens and names, then starts setup.</li></ul></div>
+  </div>
+</section>
+
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions.</h2></div>
+    <div class="faq reveal"><details><summary>It will not join my Wi-Fi.</summary><p>It needs 2.4 GHz with a WPA2 password. It does not join 5 GHz-only or WPA3-only networks. Most home routers broadcast a compatible 2.4 GHz network.</p></details><details><summary>The setup page does not pop up on my phone.</summary><p>Open http://192.168.4.1 in your browser while joined to the codeMeter Wi-Fi.</p></details><details><summary>The clock shows the wrong time.</summary><p>The time zone comes from ip-api.com. If a network filter such as an ad blocker blocks it, allow ip-api.com.</p></details><details><summary>How do I switch from Claude to Codex?</summary><p>Hold C about 7 seconds to factory reset, then set it up again and pick OpenAI Codex. No reflashing.</p></details></div>
+  </div>
+</section>
+
+
+<section class="sec sec-soft" id="related">
+  <div class="wrap">
+    <div class="head reveal"><h2>Keep reading</h2></div>
+    <ul class="related reveal"><li><a href="../../codemeter/set-up-claude/">Set up with Claude</a></li><li><a href="../../codemeter/set-up-codex/">Set up with Codex</a></li><li><a href="../../codemeter/privacy/">Privacy and security</a></li><li><a href="../../codemeter/updates/">Firmware updates</a></li><li><a href="../../codemeter/guides/">All guides</a></li></ul>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="reveal">Stop guessing.</h2>
+    <a class="btn btn-lg reveal" href="../../codemeter/#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="../../codemeter/#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../../codemeter/">codeMeter</a><a href="../../price/">priceMeter</a><a href="../../sports/">sportsMeter</a><a href="../../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">codeMeter is an independent product. Claude and Anthropic are trademarks of Anthropic; OpenAI, ChatGPT and Codex are trademarks of OpenAI; Datadog is a trademark of Datadog, Inc. Not made by, endorsed by, or affiliated with any of them.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "landing", "slug": "codemeter", "name": "codeMeter", "root": "../../"};</script>
+<script src="../../assets/shot.js"></script>
+<script src="../../app.js"></script>
+
+<script src="../../seo/codemeter/landing.js"></script>
+
+</body>
+</html>

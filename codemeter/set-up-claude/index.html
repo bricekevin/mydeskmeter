@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up codeMeter with Claude: setup-token and QR | codeMeter</title>
+<meta name="description" content="How to set up codeMeter for Claude: join its Wi-Fi, run claude setup-token once, paste the token or scan the pairing QR. About five minutes.">
+<link rel="canonical" href="https://mydeskmeter.com/codemeter/set-up-claude/">
+<meta name="theme-color" content="#f4f2ee">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="myDeskMeter">
+<meta property="og:title" content="Set up codeMeter with Claude: setup-token and QR | codeMeter">
+<meta property="og:description" content="How to set up codeMeter for Claude: join its Wi-Fi, run claude setup-token once, paste the token or scan the pairing QR. About five minutes.">
+<meta property="og:url" content="https://mydeskmeter.com/codemeter/set-up-claude/">
+<meta property="og:image" content="https://mydeskmeter.com/assets/og/codemeter.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need the Claude CLI?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, once per Claude account, to run claude setup-token. It is a free download from Anthropic. After that the device runs on its own."}}, {"@type": "Question", "name": "Is the token sent to you?", "acceptedAnswer": {"@type": "Answer", "text": "No. You paste it over the device's own local Wi-Fi, and the pairing page builds its QR in your browser. The token is stored on the device only."}}, {"@type": "Question", "name": "The screen says Claude login expired. What now?", "acceptedAnswer": {"@type": "Answer", "text": "Hold B about 7 seconds (an orange screen appears at 5 seconds, keep holding) and paste a fresh token from claude setup-token. Your Wi-Fi and names are kept."}}, {"@type": "Question", "name": "Which Wi-Fi does it need?", "acceptedAnswer": {"@type": "Answer", "text": "2.4 GHz with a WPA2 password. It does not join 5 GHz-only or WPA3-only networks."}}]}</script>
+
+</head>
+<body style="--accent: #d9693f; --accent-ink: #d9693f;">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="../../" aria-label="myDeskMeter home">myDeskMeter</a>
+    <span class="crumb" aria-hidden="true">/</span><a class="crumb-name" href="../../codemeter/">codeMeter</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="../../codemeter/">codeMeter</a><a href="../../codemeter/plans/">Plans</a><a href="../../codemeter/guides/">Guides</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-sm" href="../../codemeter/#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="../../">myDeskMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/">codeMeter</a> <span aria-hidden="true">/</span> <a href="../../codemeter/guides/">Guides</a> <span aria-hidden="true">/</span> <span>Set up with Claude.</span></nav>
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Setup guide</p>
+      <h1 class="reveal">Set up with Claude.</h1>
+      <p class="lede reveal">About five minutes. You need your phone, and a computer once to run claude setup-token.</p>
+      <div class="cta reveal">
+        <a class="btn" href="../../codemeter/#build">Build yours</a>
+        <span class="from">From $119</span>
+      </div>
+    </div>
+    <div class="hero-shot reveal"><link rel="stylesheet" href="../../seo/codemeter/landing.css"><div class="device"><img class="device-photo" src="../../assets/finishes/orange.webp" alt="codeMeter showing a Claude weekly limit after setup" width="1000" height="750" fetchpriority="high"><div class="screen"><img alt="" src="../../products/codemeter/screens/fw_weekly_only.webp"></div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="steps">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Steps</p><h2>Three steps.</h2></div>
+    <div class="reveal"><ol class="steps"><li><span>1</span><b>Plug it in</b><p>Join the <code>codeMeter-XXXXXX</code> Wi-Fi from your phone. The setup page opens (or visit <code>http://192.168.4.1</code>).</p></li><li><span>2</span><b>Get your token</b><p>On a computer with the Claude CLI, run <code>claude setup-token</code>. It opens a browser to sign in, then prints a long token.</p></li><li><span>3</span><b>Paste and save</b><p>Tap Setup Device, pick <b>Claude Code</b>, paste the token (or scan the QR from the pairing page), choose your home Wi-Fi and Save.</p></li></ol></div>
+  </div>
+</section>
+
+<section class="sec sec-soft" id="token">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">The token</p><h2>What claude setup-token does.</h2></div>
+    <div class="reveal"><div class="cm-prose"><p>It is one command in Anthropic's Claude CLI (a free download). It signs you in through your browser and prints a long-lived token. codeMeter uses that token to read your usage. You do it once per Claude account.</p><p>The <a href="https://encinitas3d.com/codemeter/?utm_content=seo-pairing">pairing page</a> at encinitas3d.com/codemeter turns the token into a QR code <b>in your browser</b>, so you can scan it from the device's setup page instead of pasting. Nothing is uploaded.</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="phone">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">On your phone</p><h2>The pages you will see.</h2></div>
+    <div class="reveal"><div class="cm-phones"><figure><img loading="lazy" src="../../seo/codemeter/screens/portal_menu.webp" alt="codeMeter setup menu"><figcaption>The setup page opens when you join the codeMeter Wi-Fi.</figcaption></figure><figure><img loading="lazy" src="../../seo/codemeter/screens/portal_setup_claude.webp" alt="Setup page with the Claude token field"><figcaption>Pick a setup: <b>Claude Code</b>, <b>OpenAI Codex</b>, <b>Claude + Codex</b> or <b>2 Claude accounts</b>.</figcaption></figure><figure><img loading="lazy" src="../../seo/codemeter/screens/helper_page.webp" alt="Pairing page with a QR code"><figcaption>The pairing page shows the token as a QR.</figcaption></figure></div></div>
+  </div>
+</section>
+
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions.</h2></div>
+    <div class="faq reveal"><details><summary>Do I need the Claude CLI?</summary><p>Yes, once per Claude account, to run claude setup-token. It is a free download from Anthropic. After that the device runs on its own.</p></details><details><summary>Is the token sent to you?</summary><p>No. You paste it over the device's own local Wi-Fi, and the pairing page builds its QR in your browser. The token is stored on the device only.</p></details><details><summary>The screen says Claude login expired. What now?</summary><p>Hold B about 7 seconds (an orange screen appears at 5 seconds, keep holding) and paste a fresh token from claude setup-token. Your Wi-Fi and names are kept.</p></details><details><summary>Which Wi-Fi does it need?</summary><p>2.4 GHz with a WPA2 password. It does not join 5 GHz-only or WPA3-only networks.</p></details></div>
+  </div>
+</section>
+
+
+<section class="sec sec-soft" id="related">
+  <div class="wrap">
+    <div class="head reveal"><h2>Keep reading</h2></div>
+    <ul class="related reveal"><li><a href="../../codemeter/set-up-codex/">Set up with Codex</a></li><li><a href="../../codemeter/two-claude-accounts/">Two Claude accounts</a></li><li><a href="../../codemeter/troubleshooting/">Troubleshooting</a></li><li><a href="../../codemeter/privacy/">Privacy and security</a></li><li><a href="../../codemeter/claude-pro/">Claude Pro</a></li><li><a href="../../codemeter/guides/">All guides</a></li></ul>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="reveal">Stop guessing.</h2>
+    <a class="btn btn-lg reveal" href="../../codemeter/#build">Build yours</a>
+  </div>
+</section>
+
+</main>
+
+<a class="sticky-buy" id="stickyBuy" href="../../codemeter/#build">Build yours <span>from $119</span></a>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><a class="brand" href="../../">myDeskMeter</a> by <a href="https://encinitas3d.com/?utm_content=footer" data-utm>Encinitas 3D</a>, Encinitas, California</p>
+    <nav aria-label="Products">
+      <a href="../../codemeter/">codeMeter</a><a href="../../price/">priceMeter</a><a href="../../sports/">sportsMeter</a><a href="../../social/">socialMeter</a>
+      <a href="mailto:info@encinitas3d.com">Contact</a>
+    </nav>
+  </div>
+  <p class="wrap legal">codeMeter is an independent product. Claude and Anthropic are trademarks of Anthropic; OpenAI, ChatGPT and Codex are trademarks of OpenAI; Datadog is a trademark of Datadog, Inc. Not made by, endorsed by, or affiliated with any of them.</p>
+</footer>
+
+<script>window.PAGE = {"kind": "landing", "slug": "codemeter", "name": "codeMeter", "root": "../../"};</script>
+<script src="../../assets/shot.js"></script>
+<script src="../../app.js"></script>
+
+<script src="../../seo/codemeter/landing.js"></script>
+
+</body>
+</html>
