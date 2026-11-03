@@ -22,7 +22,7 @@
     ["BA", "Boeing"], ["V", "Visa"], ["MA", "Mastercard"], ["PYPL", "PayPal"], ["PEP", "PepsiCo"], ["KO", "Coca-Cola"],
     ["WMT", "Walmart"], ["T", "AT&T"], ["XOM", "ExxonMobil"]];
   var QUOTES = ["USDT", "USDC", "USD4", "BUSD", "TUSD", "USD", "BTC", "ETH", "BNB", "DAI", "UST"];
-  var TRY = [["Bitcoin", "c", "BTCUSDT"], ["Ethereum", "c", "ETHUSDT"], ["Dogecoin", "c", "DOGEUSDT"], ["Tesla", "s", "TSLA"], ["Apple", "s", "AAPL"], ["SPY", "s", "SPY"]];
+  var TRY = [["Bitcoin", "c", "BTCUSDT"], ["ETH", "c", "ETHUSDT"], ["Dogecoin", "c", "DOGEUSDT"], ["Tesla", "s", "TSLA"], ["Apple", "s", "AAPL"], ["SPY", "s", "SPY"]];
 
   var css = "\
 #meterTool .pmt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px;align-items:start}\
